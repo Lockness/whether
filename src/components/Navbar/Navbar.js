@@ -20,7 +20,6 @@ class Navbar extends React.Component {
         <Row align='bottom'>
           <Col span={3}>
             <h1>Whether</h1>
-            <a href="http://lockness.github.io/whether" target="_blank" rel="noopener noreferrer"></a>
           </Col>
           <Col xs={{ span: 8, offset: 13 }} lg={{ span: 3, offset: 18 }}>
             <Menu
