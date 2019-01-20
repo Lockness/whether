@@ -6,22 +6,13 @@ import PropTypes from 'prop-types';
 import { Form, DatePicker } from 'antd';
 
 class DateOfTripPicker extends React.Component {
-  state = {
-    current: 'mail',
-  }
-
-  handleClick = (e) => {
-    this.setState({
-      current: e.key,
-    });
-  }
 
   render() {
     return (
       <Form.Item label="Date of Trip" style={{'textAlign': 'left'}}>
-        {this.props.getFieldDecorator('title')(
-          <DatePicker pullLeft/>
-        )}
+        <DatePicker pullLeft
+          onChange={(date, dateString) => this.props.onChange(dateString)}
+        />
       </Form.Item>
     );
   }

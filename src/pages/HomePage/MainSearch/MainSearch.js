@@ -9,21 +9,31 @@ import { Form, Button } from 'antd';
 
 class MainSearch extends React.Component {
   state = {
-    current: 'mail',
+    origin: '',
+    destination: '',
+    date: ''
   }
 
-  handleClick = (e) => {
-    this.setState({
-      current: e.key,
-    });
+  onLocationChange = (name, e) => {
+    this.setState({[name]: e.target.value});
+  }
+
+  onDateChange = (date) => {
+    this.setState({'date': date});
   }
 
   render() {
-    let { getFieldDecorator } = this.props.form;
     return (
       <Form layout="vertical">
-        <PlacesPicker getFieldDecorator={getFieldDecorator} />
-        <DatePicker getFieldDecorator={getFieldDecorator} />
+        <PlacesPicker
+          origin={this.state.origin}
+          destination={this.state.destination}
+          onChange={this.onLocationChange}
+        />
+        <DatePicker
+          date={this.state.date}
+          onChange={this.onDateChange}
+        />
         <Form.Item>
           <Button>Search</Button>
         </Form.Item>

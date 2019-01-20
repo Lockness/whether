@@ -8,26 +8,23 @@ import { Form, Input } from 'antd';
 import Script from 'react-load-script';
 
 class PlacesPicker extends React.Component {
-  state = {
-    current: 'mail',
-  }
+  constructor(props) {
+    super(props);
 
-  handleClick = (e) => {
-    this.setState({
-      current: e.key,
-    });
   }
 
   render() {
     return (
       <React.Fragment>
         <Form.Item label="Starting Location">
-          {this.props.getFieldDecorator('origin')(
-            <Input />
-          )}
+          <Input
+            onChange={(e) => this.props.onChange('origin', e)}
+          />
         </Form.Item>
         <Form.Item label="Destination">
-          {this.props.getFieldDecorator('destination')(<Input/>)}
+          <Input
+            onChange={(e) => this.props.onChange('destination', e)}
+          />
         </Form.Item>
       </React.Fragment>
     );
@@ -35,7 +32,9 @@ class PlacesPicker extends React.Component {
 }
 
 PlacesPicker.propTypes = {
-  getFieldDecorator: PropTypes.func
+  origin: PropTypes.string,
+  destination: PropTypes.string,
+  onChange: PropTypes.func
 };
 
 export default PlacesPicker;

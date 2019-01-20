@@ -16,7 +16,7 @@ class Navbar extends React.Component {
 
   render() {
     return (
-      <div style={{'background-color':'white'}}>
+      <div style={{'backgroundColor': 'white'}}>
         <Row align='bottom'>
           <Col span={3}>
             <h1>Whether</h1>
