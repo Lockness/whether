@@ -14,8 +14,8 @@ class MainSearch extends React.Component {
     date: ''
   }
 
-  onLocationChange = (name, e) => {
-    this.setState({[name]: e.target.value});
+  onLocationChange = (name, address) => {
+    this.setState({[name]: address});
   }
 
   onDateChange = (date) => {
