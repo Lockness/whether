@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 import { Form, Input } from 'antd';
 
+import Script from 'react-load-script';
 
 class PlacesPicker extends React.Component {
   state = {
