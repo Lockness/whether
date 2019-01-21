@@ -10,7 +10,7 @@ class PlacesPicker extends React.Component {
   handleScriptLoad = () => {
     /*global google*/
 
-    var options = { types: ['(cities)'] };
+    var options = { types: ['address'] };
 
     this.originAutocomplete = new google.maps.places.Autocomplete(
       document.getElementById('origin'),
@@ -28,7 +28,7 @@ class PlacesPicker extends React.Component {
   handleOriginSelect = () => {
     let addressObject = this.originAutocomplete.getPlace();
 
-    if (addressObject.address_components) {
+    if (addressObject && addressObject.formatted_address) {
       this.props.onChange('origin', addressObject.formatted_address);
     }
   }
@@ -36,7 +36,7 @@ class PlacesPicker extends React.Component {
   handleDestinationSelect = () => {
     let addressObject = this.destinationAutocomplete.getPlace();
 
-    if (addressObject.address_components) {
+    if (addressObject && addressObject.formatted_address) {
       this.props.onChange('destination', addressObject.formatted_address);
     }
   }
