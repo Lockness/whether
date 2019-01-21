@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "antd": "^3.12.3",
+    "axios": "^0.18.0",
     "babel-plugin-import": "^1.11.0",
     "customize-cra": "^0.2.9",
     "gh-pages": "^2.0.1",
