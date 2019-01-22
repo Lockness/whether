@@ -2,8 +2,10 @@
 
 import DatePicker from './DatePicker';
 import PlacesPicker from './PlacesPicker';
+
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import { Form, Button } from 'antd';
 
@@ -26,7 +28,7 @@ class MainSearch extends React.Component {
   }
 
   onSearch = () => {
-    let url = 'https://osjmxav54i.execute-api.us-east-1.amazonaws.com/beta/directions?origin=disneyland&destination=home'
+    let url = 'https://osjmxav54i.execute-api.us-east-1.amazonaws.com/beta/whether?origin=cleveland&destination=washington+dc'
     axios.get(
       url,
       {
@@ -35,7 +37,7 @@ class MainSearch extends React.Component {
         }
       }
     ).then(res => {
-      console.log(res)
+      console.log(res.data)
     });
   }
 
@@ -52,11 +54,13 @@ class MainSearch extends React.Component {
           onChange={this.onDateChange}
         />
         <Form.Item>
-          <Button
-            onClick={this.onSearch}
-          >
-            Search
-          </Button>
+          <Link to='/whether'>
+            <Button
+              onClick={this.onSearch}
+            >
+              Search
+            </Button>
+          </Link>
         </Form.Item>
       </Form>
     );
