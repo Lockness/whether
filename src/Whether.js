@@ -4,7 +4,7 @@ import Navbar from './components/Navbar/Navbar';
 import './Whether.css';
 
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 import { Layout } from 'antd';
 const { Header, Footer, Content } = Layout;

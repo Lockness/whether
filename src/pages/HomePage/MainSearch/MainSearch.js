@@ -63,5 +63,4 @@ MainSearch.propTypes = {
   form: PropTypes.object
 };
 
-const WrappedMainSearch = Form.create()(MainSearch);
-export default WrappedMainSearch;
+export default MainSearch;
