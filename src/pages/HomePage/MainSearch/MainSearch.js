@@ -1,5 +1,6 @@
 'use-strict';
 
+import { callWhether } from '../../../services/awsService';
 import DatePicker from './DatePicker';
 import PlacesPicker from './PlacesPicker';
 
@@ -8,8 +9,6 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import { Form, Button } from 'antd';
-
-import axios from 'axios';
 
 class MainSearch extends React.Component {
 
@@ -28,15 +27,8 @@ class MainSearch extends React.Component {
   }
 
   onSearch = () => {
-    let url = 'https://osjmxav54i.execute-api.us-east-1.amazonaws.com/beta/whether?origin=cleveland&destination=washington+dc'
-    axios.get(
-      url,
-      {
-        params: {
-          headers: {'Access-Control-Allow-Origin': '*'}
-        }
-      }
-    ).then(res => {
+    callWhether(this.state.origin, this.state.destination)
+    .then(res => {
       console.log(res.data)
     });
   }
