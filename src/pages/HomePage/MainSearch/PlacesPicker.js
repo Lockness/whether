@@ -10,15 +10,11 @@ class PlacesPicker extends React.Component {
   handleScriptLoad = () => {
     /*global google*/
 
-    var options = { types: ['address'] };
-
     this.originAutocomplete = new google.maps.places.Autocomplete(
-      document.getElementById('origin'),
-      options
+      document.getElementById('origin')
     );
     this.destinationAutocomplete = new google.maps.places.Autocomplete(
-      document.getElementById('destination'),
-      options
+      document.getElementById('destination')
     );
 
     this.originAutocomplete.addListener('place_changed', this.handleOriginSelect);
