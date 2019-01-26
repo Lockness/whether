@@ -13,6 +13,7 @@ class ResultsPage extends Component {
       <Row>
         <Col span={12} offset={6}>
           <h1>RESULTS</h1>
+          <p>Hey Sara</p>
         </Col>
       </Row>
     );
