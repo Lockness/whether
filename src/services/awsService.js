@@ -8,12 +8,7 @@ export const callWhether = (origin, destination) => {
 
   let _origin = encodeURIComponent(origin);
   let _destination = encodeURIComponent(destination);
-  let whetherUrl = baseUrl + 'directions';
-
-  let data = {
-    origin: _origin,
-    destination: _destination
-  };
+  let whetherUrl = baseUrl + 'whether?origin=' + _origin + '&destination=' + _destination;
 
   let config = {
     headers: {
@@ -21,5 +16,5 @@ export const callWhether = (origin, destination) => {
     }
   };
 
-  return axios.post(whetherUrl, data, config);
+  return axios.get(whetherUrl, config);
 };
