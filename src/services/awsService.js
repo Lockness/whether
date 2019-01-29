@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseUrl = 'https://osjmxav54i.execute-api.us-east-1.amazonaws.com/beta/';
+const baseUrl = 'https://api.whether.cloud/beta/';
 
 export const callWhether = (origin, destination) => {
   if (!origin || !destination)
@@ -8,7 +8,18 @@ export const callWhether = (origin, destination) => {
 
   let _origin = encodeURIComponent(origin);
   let _destination = encodeURIComponent(destination);
-  let whetherUrl = baseUrl + 'whether?origin=' + _origin + '&destination=' + _destination;
+  let whetherUrl = baseUrl + 'directions';
 
-  return axios.get(whetherUrl)
-}
+  let data = {
+    origin: _origin,
+    destination: _destination
+  };
+
+  let config = {
+    headers: {
+      'x-api-key': 'BYi5MaSB1IaFAyUDbaIaMa25mmdyhngK3H4WENXe'
+    }
+  };
+
+  return axios.post(whetherUrl, data, config);
+};

@@ -1,8 +1,9 @@
 'use-strict';
 
-import { callWhether } from '../../../services/awsService';
 import DatePicker from './DatePicker';
 import PlacesPicker from './PlacesPicker';
+import { connect } from 'react-redux';
+import { setPlaces } from '../../../redux/actions';
 
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -27,10 +28,7 @@ class MainSearch extends React.Component {
   }
 
   onSearch = () => {
-    callWhether(this.state.origin, this.state.destination)
-    .then(res => {
-      console.log(res.data)
-    });
+    this.props.setPlaces(this.state.origin, this.state.destination);
   }
 
   render() {
@@ -60,7 +58,12 @@ class MainSearch extends React.Component {
 }
 
 MainSearch.propTypes = {
-  form: PropTypes.object
+  setPlaces: PropTypes.func
 };
 
-export default MainSearch;
+
+const mapDispatchToProps = (dispatch, props) => ({
+  setPlaces: (origin, destination) => dispatch(setPlaces(origin, destination))
+})
+
+export default connect(null, mapDispatchToProps)(MainSearch);
