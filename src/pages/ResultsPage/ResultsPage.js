@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 
 import { callWhether } from '../../services/awsService';
 import Map from './Map';
+import WeatherPoints from './WeatherPoints';
+import './ResultsPage.less';
 
 class ResultsPage extends Component {
 
@@ -27,13 +29,18 @@ class ResultsPage extends Component {
 
   render() {
     return (
-      <Row>
-        <Col span={12} offset={6}>
-          <h1>RESULTS</h1>
-          <p>Hey Sara</p>
-          <Map />
-        </Col>
-      </Row>
+      <div id='results'>
+        <h1>Heres the weather for the trip</h1>
+        <p>Starting in {this.props.origin} and finishing in {this.props.destination}</p>
+        <Row>
+          <Col span={12} order={1} >
+            <Map />
+          </Col>
+          <Col span={12} order={2} > 
+            <WeatherPoints />
+          </Col>
+        </Row>
+      </div>
     );
   }
 }

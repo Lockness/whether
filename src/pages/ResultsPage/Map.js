@@ -10,7 +10,7 @@ class Map extends React.Component {
     
     let columbus = {lat: 40.0016, lng: -83.0197};
     let map = new google.maps.Map(
-      document.getElementById('map'), {zoom: 4, center: columbus}
+      document.getElementById('map'), {zoom: 6, center: columbus}
     );
     let marker = new google.maps.Marker({position: columbus, map: map});
   }
@@ -22,8 +22,8 @@ class Map extends React.Component {
           url="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBE4ui6NqI3DkVOY5iMZX6oUp1xoseJYA"
           onLoad={this.handleScriptLoad}
         />
-        <div style={{height: '100%', width: '100%'}}>
-          <div id='map'></div>
+        <div style={{height: '400px', width: '100%'}}>
+          <div id='map' style={{height: '100%', width: '100%'}}></div>
         </div>
       </React.Fragment>
     )
