@@ -1,16 +1,23 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import whetherApp from './redux/reducers';
+import { applyMiddleware, compose, createStore } from 'redux';
+import thunk from 'redux-thunk';
 
+import whetherApp from './redux/reducers';
 import Whether from './Whether';
 import './App.css';
 
 const App = (props) => {
+
+  const allStoreEnhancers = compose(
+    applyMiddleware(thunk),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() //For redux tools
+  );
+
   const store = createStore(
     whetherApp,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() //For redux tools
+    allStoreEnhancers
   );
 
   return (

@@ -1,4 +1,4 @@
-
+export const SET_PLACES = 'SET_PLACES';
 export const CALL_WHETHER = 'CALL_WHETHER';
 
 export const callWhether = (origin, destination) => {
@@ -8,3 +8,12 @@ export const callWhether = (origin, destination) => {
     destination
   }
 }
+
+export const setPlaces = (origin, destination) => {
+  return {
+    type: SET_PLACES,
+    origin,
+    destination
+  }
+}
+
