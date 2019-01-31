@@ -16,21 +16,21 @@ const WeatherPoints = ({waypoints, directions}) => {
   }
 
   return (
-    <React.Fragment>
+    <div style={{display: 'flex', flexWrap: 'wrap'}}>
       {directions.legs.map((direction , index) => {
         let waypoint = waypoints[index];
         let city = getAddressCity(direction.start_address);
         return (
         <Card 
-          title={city}
-          style={{width: 200}}
+          title={(index + 1) + ': ' + city}
+          style={{width: 200, margin: '20px'}}
           key={index}
         >
           <p>{waypoint.weather_data.shortForecast}</p> 
         </Card>
         )
       })}
-    </React.Fragment>
+    </div>
   );
 };
 
