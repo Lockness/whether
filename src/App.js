@@ -1,17 +1,28 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 
 import whetherApp from './redux/reducers';
 import Whether from './Whether';
+import whetherService from './services/whetherService';
 import './App.css';
 
 const App = (props) => {
 
+  const composeEnhancers =
+    typeof window === 'object' &&
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({}) :
+    compose;
+
+  const enhancer = composeEnhancers(
+    applyMiddleware(whetherService)
+  );
+
   const store = createStore(
     whetherApp,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() //For redux tools
+    enhancer
   );
 
   return (

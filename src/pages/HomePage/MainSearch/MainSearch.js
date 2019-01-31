@@ -4,6 +4,7 @@ import DatePicker from './DatePicker';
 import PlacesPicker from './PlacesPicker';
 import { connect } from 'react-redux';
 import { setPlaces } from '../../../redux/actions';
+import { getWhetherData } from '../../../services/whetherService';
 
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -29,6 +30,7 @@ class MainSearch extends React.Component {
 
   onSearch = () => {
     this.props.setPlaces(this.state.origin, this.state.destination);
+    this.props.getWhether(this.state.origin, this.state.destination);
   }
 
   render() {
@@ -58,12 +60,14 @@ class MainSearch extends React.Component {
 }
 
 MainSearch.propTypes = {
-  setPlaces: PropTypes.func
+  setPlaces: PropTypes.func,
+  getWhether: PropTypes.func
 };
 
 
 const mapDispatchToProps = (dispatch, props) => ({
-  setPlaces: (origin, destination) => dispatch(setPlaces(origin, destination))
+  setPlaces: (origin, destination) => dispatch(setPlaces(origin, destination)),
+  getWhether: (origin, destination) => dispatch(getWhetherData(origin, destination))
 })
 
 export default connect(null, mapDispatchToProps)(MainSearch);
