@@ -7,6 +7,7 @@ import Script from 'react-load-script';
 
 class PlacesPicker extends React.Component {
 
+
   handleScriptLoad = () => {
     /*global google*/
 
@@ -25,7 +26,7 @@ class PlacesPicker extends React.Component {
     let addressObject = this.originAutocomplete.getPlace();
 
     if (addressObject && addressObject.formatted_address) {
-      this.props.onChange('origin', addressObject.formatted_address);
+      this.props.setOrigin(addressObject.formatted_address);
     }
   }
 
@@ -33,11 +34,12 @@ class PlacesPicker extends React.Component {
     let addressObject = this.destinationAutocomplete.getPlace();
 
     if (addressObject && addressObject.formatted_address) {
-      this.props.onChange('destination', addressObject.formatted_address);
+      this.props.setDestination(addressObject.formatted_address);
     }
   }
 
   render() {
+    let { origin, destination, setOrigin, setDestination } = this.props;
     return (
       <React.Fragment>
         <Script
@@ -47,23 +49,17 @@ class PlacesPicker extends React.Component {
         <Form.Item label="Starting Location">
           <Input
             id='origin'
-            name='origin'
-            value={this.props.origin}
-            onChange={(e) => this.props.onChange('origin', e.target.value)}
+            value={origin}
+            onChange={(e) => setOrigin(e.target.value)}
           />
         </Form.Item>
         <Form.Item label="Destination">
           <Input
             id='destination'
-            name='destination'
-            value={this.props.destination}
-            onChange={(e) => this.props.onChange('destination', e.target.value)}
+            value={destination}
+            onChange={(e) => setDestination(e.target.value)}
           />
         </Form.Item>
-        <Script
-          url="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBE4ui6NqI3DkVOY5iMZX6oUp1xoseJYA&libraries=places"
-          onLoad={this.handleScriptLoad}
-        />
       </React.Fragment>
     );
   }
@@ -72,7 +68,8 @@ class PlacesPicker extends React.Component {
 PlacesPicker.propTypes = {
   origin: PropTypes.string,
   destination: PropTypes.string,
-  onChange: PropTypes.func
+  setOrigin: PropTypes.func,
+  setDestination: PropTypes.func
 };
 
 export default PlacesPicker;

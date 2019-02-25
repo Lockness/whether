@@ -27,9 +27,7 @@ const App = (props) => {
 
   return (
     <div className="whether">
-      <Provider
-        store={store}
-      >
+      <Provider store={store}>
         <Router>
           <Whether/>
         </Router>

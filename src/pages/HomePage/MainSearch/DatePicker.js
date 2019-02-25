@@ -7,9 +7,8 @@ import { Form, DatePicker } from 'antd';
 
 import moment from 'moment';
 
-class DateOfTripPicker extends React.Component {
-
-  getArray = (start, end) => {
+const DateOfTripPicker = ({onChange}) => {
+  const getArray = (start, end) => {
     const result = [];
     for (let i = start; i < end; i++) {
       result.push(i);
@@ -17,35 +16,33 @@ class DateOfTripPicker extends React.Component {
     return result;
   }
 
-  getDisabledDate = (current) => {
+  const getDisabledDate = (current) => {
     return current && current < moment().subtract(1, 'days');
   }
 
-  getDisabledTime = () => {
+  const getDisabledTime = () => {
     let hours = moment().hours()
     return {
-      disabledHours: () => this.getArray(0,24).splice(0, hours)
+      disabledHours: () => getArray(0,24).splice(0, hours)
     }
   }
 
-  render() {
-    return (
-      <Form.Item label="Date of Trip" style={{'textAlign': 'left'}}>
-        <DatePicker
-          pullLeft
-          showTime
-          format='MM-DD-YYYY hh:mm'
-          disabledDate={this.getDisabledDate}
-          disabledTime={this.getDisabledTime}
-          onChange={(date, dateString) => this.props.onChange(dateString)}
-        />
-      </Form.Item>
-    );
-  }
+  return (
+    <Form.Item label="Date of Trip" style={{'textAlign': 'left'}}>
+      <DatePicker
+        pullLeft
+        showTime
+        format='MM-DD-YYYY hh:mm'
+        disabledDate={getDisabledDate}
+        disabledTime={getDisabledTime}
+        onChange={(date, dateString) => onChange(dateString)}
+      />
+    </Form.Item>
+  );
 }
 
 DateOfTripPicker.propTypes = {
-  getFieldDecorator: PropTypes.func
+  onChange: PropTypes.func
 };
 
 export default DateOfTripPicker;

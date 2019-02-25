@@ -1,34 +1,34 @@
 'use-strict';
 
-import React, { Component } from 'react';
-import { Row, Col } from 'antd';
+import React from 'react';
+import { Row, Col, Spin } from 'antd';
 import { connect } from 'react-redux';
 
-import { callWhether } from '../../services/awsService';
 import Map from './Map';
 import WeatherPoints from './WeatherPoints';
 import './ResultsPage.less';
 
-class ResultsPage extends Component {
-  render() {
+const ResultsPage = ({origin, destination, directions, waypoints}) => {
+  if (waypoints) {
     return (
-      !this.props.waypoints ? (<p>loading</p>) :
       <div id='results'>
         <h1>Heres the weather for the trip</h1>
-        <p>Starting in {this.props.origin} and finishing in {this.props.destination}</p>
+        <p>Starting in {origin} and finishing in {destination}</p>
         <Row>
-          <Col span={12} order={1} >
-            <Map waypoints={this.props.waypoints}/>
+          <Col span={12} order={1}>
+            <Map waypoints={waypoints}/>
           </Col>
-          <Col span={12} order={2} > 
+          <Col span={12} order={2}> 
             <WeatherPoints
-              waypoints={this.props.waypoints}
-              directions={this.props.directions}
+              waypoints={waypoints}
+              directions={directions}
             />
           </Col>
         </Row>
       </div>
     );
+  } else {
+      return <Spin/>
   }
 }
 
