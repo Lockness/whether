@@ -4,13 +4,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "antd": "^3.12.3",
     "axios": "^0.18.0",
-    "babel-plugin-import": "^1.11.0",
     "customize-cra": "^0.2.9",
     "gh-pages": "^2.0.1",
-    "less": "^3.9.0",
-    "less-loader": "^4.1.0",
     "moment": "^2.23.0",
     "react": "^16.7.0",
     "react-app-rewired": "^2.0.2",
@@ -30,11 +26,28 @@
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
-    "extends": "react-app",
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended"
+    ],
+    "parser": "eslint-babel",
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true,
+        "modules": true
+      }
+    },
     "plugins": [
+      "react",
       "react-hooks"
     ],
     "rules": {
+      "indent": [
+        "error",
+        2
+      ],
+      "react/jsx-uses-react": 2,
+      "react/jsx-uses-vars": 2,
       "react-hooks/rules-of-hooks": 2,
       "react-hooks/exhaustive-deps": 1
     }
@@ -46,6 +59,13 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "eslint-plugin-react-hooks": "^1.2.0"
+    "babel-eslint": "9.0.0",
+    "babel-loader": "8.0.4",
+    "eslint": "5.6.0",
+    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-react-hooks": "^1.2.0",
+    "postcss-loader": "^3.0.0",
+    "react-app-rewire-postcss": "^3.0.2",
+    "tailwindcss": "^0.7.4"
   }
 }
