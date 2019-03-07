@@ -3,6 +3,20 @@ import PropTypes from 'prop-types';
 
 import Script from 'react-load-script';
 
+const PlaceInput = ({id, label, value, onChange}) => {
+  return(
+    <React.Fragment>
+      <h2 className="text-lg text-left ml-2">{label}</h2>
+      <input
+        id={id}
+        className="p-4 m-1 mb-3 text-indigo rounded-lg"
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+      />
+    </React.Fragment>
+  ); 
+};
+
 class PlacesPicker extends React.Component {
 
   handleScriptLoad = () => {
@@ -44,17 +58,17 @@ class PlacesPicker extends React.Component {
           onLoad={this.handleScriptLoad}
         />
         <div className="flex flex-col flex-initial justify-center xs:w-3/4 sm:w-1/2 lg:w-1/4 m-auto">
-          <input
+          <PlaceInput
             id='origin'
-            className="p-4 m-1 text-indigo rounded-lg"
+            label='Coming From:'
             value={origin}
-            onChange={(e) => setOrigin(e.target.value)}
+            onChange={setOrigin}
           />
-          <input
+          <PlaceInput
+            label='Going To:'
             id='destination'
-            className="p-4 m-1 text-indigo rounded-lg"
             value={destination}
-            onChange={(e) => setDestination(e.target.value)}
+            onChange={setDestination}
           />
         </div>
       </React.Fragment>

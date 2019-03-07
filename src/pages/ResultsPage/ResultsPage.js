@@ -20,7 +20,7 @@ const ResultsPage = ({origin, destination, directions, waypoints}) => {
       </div>
     );
   } else {
-    return <p>Waiting...</p>
+    return <p className="text-center text-3xl mt-32">Waiting...</p>
   }
 }
 

@@ -25,7 +25,7 @@ const App = (props) => {
   );
 
   return (
-    <div className="whether">
+    <div className="text-white font-semibold">
       <Provider store={store}>
         <Router>
           <Whether/>

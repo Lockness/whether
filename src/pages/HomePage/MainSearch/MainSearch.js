@@ -13,7 +13,7 @@ const Button = (props) => {
   return (
     <button
       {...props}
-      className="bg-transparent border-2 border-solid border-white text-white py-2 px-4 mt-4 rounded hover:bg-indigo hover:border-transparent hover:text-white">
+      className="bg-transparent border-2 border-solid border-white font-bold text-white py-2 px-4 mt-4 rounded hover:bg-indigo hover:border-transparent hover:text-white">
       Search
     </button>
   );
