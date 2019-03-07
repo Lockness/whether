@@ -9,7 +9,7 @@ const PlaceInput = ({id, label, value, onChange}) => {
       <h2 className="text-lg text-left ml-2">{label}</h2>
       <input
         id={id}
-        className="p-4 m-1 mb-3 text-indigo rounded-lg"
+        className="p-4 m-1 mb-3 text-indigo rounded-lg font-bold"
         value={value}
         onChange={(e) => onChange(e.target.value)}
       />

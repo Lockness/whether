@@ -15,17 +15,21 @@ const WeatherPoints = ({waypoints, directions}) => {
   }
 
   return (
-    <div style={{display: 'flex', flexWrap: 'wrap'}}>
+    <div className="flex flex-wrap">
       {directions.legs.map((direction , index) => {
         let waypoint = waypoints[index];
         let city = getAddressCity(direction.start_address);
         return (
         <div
-          title={(index + 1) + ': ' + city}
-          style={{width: 200, margin: '20px'}}
           key={index}
+          className="w-48 m-8 bg-white text-indigo h-32 shadow border-2 border-indigo rounded"
         >
-          <p>{waypoint.weather_data.shortForecast}</p> 
+          <h4 className='mb-2 mt-1 py-1 border-b-2 border-grey'>
+            {(index + 1) + ':' + city}
+          </h4>
+          <p className='text-center align-middle'>
+            {waypoint.weather_data.shortForecast}
+          </p> 
         </div>
         )
       })}
