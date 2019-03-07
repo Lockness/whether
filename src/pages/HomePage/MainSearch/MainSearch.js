@@ -1,6 +1,5 @@
 'use-strict';
 
-import DatePicker from './DatePicker';
 import PlacesPicker from './PlacesPicker';
 import { connect } from 'react-redux';
 import { setPlaces } from '../../../redux/actions';
@@ -9,8 +8,6 @@ import { getWhetherData } from '../../../services/whetherService';
 import React, {useState}  from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-
-import { Form, Button } from 'antd';
 
 const MainSearch = ({setPlaces, getWhether}) => {
 
@@ -24,25 +21,19 @@ const MainSearch = ({setPlaces, getWhether}) => {
   }
 
   return (
-    <Form layout="vertical">
+    <form>
       <PlacesPicker
         origin={origin}
         destination={destination}
         setOrigin={setOrigin}
         setDestination={setDestination}
       />
-      <DatePicker
-        date={date}
-        onChange={setDate}
-      />
-      <Form.Item>
-        <Link to='/whether'>
-          <Button onClick={onSearch}>
-            Search
-          </Button>
-        </Link>
-      </Form.Item>
-    </Form>
+      <Link to='/whether'>
+        <button onClick={onSearch} className="bg-teal text-white py-2 px-4 mt-4 rounded">
+          Search
+        </button>
+      </Link>
+    </form>
   );
 }
 

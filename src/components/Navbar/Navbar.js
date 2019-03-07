@@ -1,53 +1,20 @@
 'use-strict';
 
 import React from 'react';
-import { Row, Col, Menu, Icon } from 'antd';
 
-class Navbar extends React.Component {
-  state = {
-    current: 'notification',
-  }
-
-  handleClick = (e) => {
-    this.setState({
-      current: e.key,
-    });
-  }
-
-  render() {
-    return (
-      <div style={{'backgroundColor': 'white'}}>
-        <Row align='bottom'>
-          <Col span={3}>
-            <h1>Whether</h1>
-          </Col>
-          <Col xs={{ span: 8, offset: 13 }} lg={{ span: 3, offset: 18 }}>
-            <Menu
-              onClick={this.handleClick}
-              selectedKeys={[this.state.current]}
-              mode="horizontal"
-            >
-              <Menu.Item key="notification">
-                <Icon type="notification" />
-              </Menu.Item>
-              <Menu.SubMenu
-                title={<span className="submenu-title-wrapper"><Icon type="setting" /></span>}
-              >
-                <Menu.ItemGroup title="Profile">
-                  <Menu.Item key="setting:1">Option 1</Menu.Item>
-                  <Menu.Item key="setting:2">Option 2</Menu.Item>
-                </Menu.ItemGroup>
-                <Menu.ItemGroup title="User Settings">
-                  <Menu.Item key="setting:3">Option 3</Menu.Item>
-                  <Menu.Item key="setting:4">Option 4</Menu.Item>
-                </Menu.ItemGroup>
-              </Menu.SubMenu>
-            </Menu>
-          </Col>
-        </Row>
+const Navbar = () => {
+  return (
+    <nav className="bg-teal">
+      <div className="flex flex-wrap justify-between items-center p-4">
+        <div className="flex items-center flex-no-shrink text-white">
+          <span className="font-semibold text-3xl tracking-tight">Whether</span>
+        </div>
+        <div className="w-auto flex md:items-center text-white">
+          <h4 className="text-base">Settings</h4> 
+        </div>
       </div>
-    );
-  }
+    </nav>
+  );
 }
 
 export default Navbar;

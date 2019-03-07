@@ -6,7 +6,6 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import whetherApp from './redux/reducers';
 import Whether from './Whether';
 import whetherService from './services/whetherService';
-import './App.css';
 
 const App = (props) => {
 

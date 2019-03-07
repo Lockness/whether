@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Form, Input } from 'antd';
-
 import Script from 'react-load-script';
 
 class PlacesPicker extends React.Component {
@@ -46,20 +44,20 @@ class PlacesPicker extends React.Component {
           url="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBE4ui6NqI3DkVOY5iMZX6oUp1xoseJYA&libraries=places"
           onLoad={this.handleScriptLoad}
         />
-        <Form.Item label="Starting Location">
-          <Input
+        <div className="flex flex-col flex-initial justify-center xs:w-3/4 sm:w-1/2 lg:w-1/4 m-auto">
+          <input
             id='origin'
             value={origin}
             onChange={(e) => setOrigin(e.target.value)}
+            className="p-4 m-1 shadow-md rounded-lg"
           />
-        </Form.Item>
-        <Form.Item label="Destination">
-          <Input
+          <input
             id='destination'
             value={destination}
             onChange={(e) => setDestination(e.target.value)}
+            className="p-4 m-1 shadow-md"
           />
-        </Form.Item>
+        </div>
       </React.Fragment>
     );
   }

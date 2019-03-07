@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Card } from 'antd';
 
 const WeatherPoints = ({waypoints, directions}) => {
 
@@ -21,13 +20,13 @@ const WeatherPoints = ({waypoints, directions}) => {
         let waypoint = waypoints[index];
         let city = getAddressCity(direction.start_address);
         return (
-        <Card 
+        <div
           title={(index + 1) + ': ' + city}
           style={{width: 200, margin: '20px'}}
           key={index}
         >
           <p>{waypoint.weather_data.shortForecast}</p> 
-        </Card>
+        </div>
         )
       })}
     </div>

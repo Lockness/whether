@@ -2,19 +2,18 @@
 
 import MainSearch from './MainSearch/MainSearch';
 import React, { Component } from 'react';
-import { Row, Col } from 'antd';
 
 class HomePage extends Component {
 
   render() {
     return (
-      <Row>
-        <Col span={12} offset={6} style={{'backgroundColor': '@primary-color'}}>
-          <h1>Whether</h1>
+      <div className="text-center text-teal-darker">
+        <div className="pt-12 mb-10">
+          <h1 className="mb-4">Whether</h1>
           <p>A place to get weather information on a trip</p>
-          <MainSearch/>
-        </Col>
-      </Row>
+        </div>
+        <MainSearch/>
+      </div>
     );
   }
 }
