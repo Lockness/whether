@@ -4,7 +4,7 @@ import React from 'react';
 
 const Navbar = () => {
   return (
-    <nav className="bg-teal">
+    <nav className="bg-indigo">
       <div className="flex flex-wrap justify-between items-center p-4">
         <div className="flex items-center flex-no-shrink text-white">
           <span className="font-semibold text-3xl tracking-tight">Whether</span>

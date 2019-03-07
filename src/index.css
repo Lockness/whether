@@ -47,6 +47,10 @@
 @tailwind utilities;
 
 
+html {
+  background-color: #2f365f
+}
+
 body {
   margin: 0;
   padding: 0;

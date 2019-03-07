@@ -9,6 +9,16 @@ import React, {useState}  from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
+const Button = (props) => {
+  return (
+    <button
+      {...props}
+      className="bg-transparent border-2 border-solid border-white text-white py-2 px-4 mt-4 rounded hover:bg-indigo hover:border-transparent hover:text-white">
+      Search
+    </button>
+  );
+}
+
 const MainSearch = ({setPlaces, getWhether}) => {
 
   const [origin, setOrigin] = useState('');
@@ -29,9 +39,7 @@ const MainSearch = ({setPlaces, getWhether}) => {
         setDestination={setDestination}
       />
       <Link to='/whether'>
-        <button onClick={onSearch} className="bg-teal text-white py-2 px-4 mt-4 rounded">
-          Search
-        </button>
+        <Button onClick={onSearch}/>
       </Link>
     </form>
   );

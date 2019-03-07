@@ -5,7 +5,6 @@ import Script from 'react-load-script';
 
 class PlacesPicker extends React.Component {
 
-
   handleScriptLoad = () => {
     /*global google*/
 
@@ -47,15 +46,15 @@ class PlacesPicker extends React.Component {
         <div className="flex flex-col flex-initial justify-center xs:w-3/4 sm:w-1/2 lg:w-1/4 m-auto">
           <input
             id='origin'
+            className="p-4 m-1 text-indigo rounded-lg"
             value={origin}
             onChange={(e) => setOrigin(e.target.value)}
-            className="p-4 m-1 shadow-md rounded-lg"
           />
           <input
             id='destination'
+            className="p-4 m-1 text-indigo rounded-lg"
             value={destination}
             onChange={(e) => setDestination(e.target.value)}
-            className="p-4 m-1 shadow-md"
           />
         </div>
       </React.Fragment>
