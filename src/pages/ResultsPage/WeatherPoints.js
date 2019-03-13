@@ -15,7 +15,7 @@ const WeatherPoints = ({waypoints, directions}) => {
   }
 
   return (
-    <div className="flex flex-wrap">
+    <div className="flex flex-wrap justify-center">
       {directions.legs.map((direction , index) => {
         let waypoint = waypoints[index];
         let city = getAddressCity(direction.start_address);

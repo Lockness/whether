@@ -23,8 +23,8 @@ const Map = ({waypoints}) => {
         url="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBE4ui6NqI3DkVOY5iMZX6oUp1xoseJYA"
         onLoad={handleScriptLoad}
       />
-      <div className="px-4" style={{height: '400px', width: '100%'}}>
-        <div id='map' style={{height: '100%', width: '100%'}}></div>
+      <div className="px-4 w-full" style={{height: '400px'}}>
+        <div id='map' className='h-full w-full'></div>
       </div>
     </React.Fragment>
   )
