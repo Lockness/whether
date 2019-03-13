@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import WeatherIcon from '../../components/WeatherIcon';
+
 
 const WeatherPoints = ({waypoints, directions}) => {
 
@@ -30,6 +32,9 @@ const WeatherPoints = ({waypoints, directions}) => {
           <p className='text-center align-middle'>
             {waypoint.weather_data.shortForecast}
           </p> 
+          <div className="mt-3">
+            <WeatherIcon forecast={waypoint.weather_data.shortForecast} />
+          </div>
         </div>
         )
       })}

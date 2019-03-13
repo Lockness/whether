@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 import Map from './Map';
 import WeatherPoints from './WeatherPoints';
+import Spinner from '../../components/Spinner/';
 
 const ResultsPage = ({origin, destination, directions, waypoints}) => {
   if (waypoints) {
@@ -22,7 +23,14 @@ const ResultsPage = ({origin, destination, directions, waypoints}) => {
       </div>
     );
   } else {
-    return <p className="align-middle text-center text-3xl mt-32">Waiting...</p>
+    return (
+      <React.Fragment>
+        <p className="align-middle text-center text-3xl mt-32">
+          Loading your trip 😁
+        </p>
+        <Spinner />
+      </React.Fragment>
+    )
   }
 }
 
