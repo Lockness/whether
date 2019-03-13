@@ -46,6 +46,7 @@
  */
 @tailwind utilities;
 
+@import url("weather-icons.min.css");
 
 html {
   background-color: #2f365f
