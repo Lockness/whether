@@ -26,7 +26,7 @@ const ResultsPage = ({origin, destination, directions, waypoints}) => {
     return (
       <React.Fragment>
         <p className="align-middle text-center text-3xl mt-32">
-          Loading your trip 😁
+          Loading your trip <span role="img" aria-label="smile">😁</span>
         </p>
         <Spinner />
       </React.Fragment>
