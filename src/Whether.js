@@ -9,7 +9,7 @@ import { Route } from 'react-router-dom';
 class Whether extends Component {
   render() {
     return (
-      <React.Fragment>
+      <div className="h-screen8">
         <Navbar />
         <Route
           exact
@@ -20,7 +20,7 @@ class Whether extends Component {
           path='/whether'
           component={ResultsPage}
         />
-      </React.Fragment>
+      </div>
     );
   }
 }

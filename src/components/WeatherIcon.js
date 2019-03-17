@@ -13,14 +13,12 @@ function WeatherIcon({ forecast }) {
     snow: 'wi-snow',
     isolated_snow_showers: 'wi-snow',
     scattered_snow_showers: 'wi-snow',
-    snow: 'wi-snow',
     cloudy: 'wi-cloudy',
     windy: 'wi-windy',
   };
   
   const getIconClass = (forecast) => {
     let iconKey = forecast.toLowerCase().replace(/ /g, '_');
-    console.log(iconKey);
     return ICON_TYPES[iconKey];
   };
 

@@ -7,7 +7,7 @@ const WithMockApiData = (WrappedComponent) => {
       <WrappedComponent
         origin='Greensboro, NC'
         destination='Columbus, OH'
-        directions={mock_data.directions}
+        polyline={mock_data.polyline}
         waypoints={mock_data.equidistant_markers}
       />
     );

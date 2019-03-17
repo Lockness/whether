@@ -510,6 +510,7 @@ module.exports = {
     '5/6': '83.33333%',
     'full': '100%',
     'screen': '100vw',
+    'half': '50vw',
   },
 
 
@@ -548,6 +549,7 @@ module.exports = {
     '64': '16rem',
     'full': '100%',
     'screen': '100vh',
+    'screen8': '82vh',
   },
 
 

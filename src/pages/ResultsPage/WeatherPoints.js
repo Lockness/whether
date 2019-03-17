@@ -17,13 +17,13 @@ const WeatherPoints = ({ waypoints }) => {
   }
 
   return (
-    <div className="flex flex-wrap justify-center">
+    <div className="flex flex-col justify-center">
       {waypoints.map((waypoint, index) => {
         let city = getAddressCity(waypoint.address);
         return (
         <div
           key={index}
-          className="w-48 m-8 bg-white text-indigo h-32 shadow border-2 border-indigo rounded"
+          className="w-full bg-white text-indigo h-32 shadow border-2 border-indigo-light rounded"
         >
           <h4 className='mb-2 mt-1 py-1 border-b-2 border-grey'>
             {(index + 1) + ':' + city}
