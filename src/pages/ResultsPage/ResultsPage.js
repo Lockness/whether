@@ -1,10 +1,10 @@
 'use-strict';
 
 import React from 'react';
-//import { connect } from 'react-redux'; 
+import { connect } from 'react-redux'; 
 
 import Map from './Map';
-import WithMockApiData from './WithMockApiData';
+//import WithMockApiData from './WithMockApiData';
 import WeatherPoints from './WeatherPoints';
 import Spinner from '../../components/Spinner/';
 
@@ -40,7 +40,6 @@ const ResultsPage = ({origin, destination, waypoints}) => {
   return outputJsx;
 }
 
-/*
 const mapStateToProps = (state, props) =>
 ({
   origin: state.origin,
@@ -49,5 +48,4 @@ const mapStateToProps = (state, props) =>
 })
 
 export default connect(mapStateToProps)(ResultsPage);
-*/
-export default WithMockApiData(ResultsPage);
+//export default WithMockApiData(ResultsPage);
