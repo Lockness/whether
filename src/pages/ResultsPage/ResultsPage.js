@@ -7,7 +7,7 @@ import Map from './Map';
 import WeatherPoints from './WeatherPoints';
 import Spinner from '../../components/Spinner/';
 
-const ResultsPage = ({origin, destination, directions, waypoints}) => {
+const ResultsPage = ({origin, destination, waypoints}) => {
   if (waypoints) {
     return (
       <div id='results' className='text-center'>
@@ -16,10 +16,7 @@ const ResultsPage = ({origin, destination, directions, waypoints}) => {
           <p>Starting in {origin} and finishing in {destination}</p>
         </div>
         <Map waypoints={waypoints} />
-        <WeatherPoints
-          waypoints={waypoints}
-          directions={directions}
-        />
+        <WeatherPoints waypoints={waypoints} />
       </div>
     );
   } else {
@@ -38,7 +35,6 @@ const mapStateToProps = (state, props) =>
 ({
   origin: state.origin,
   destination: state.destination,
-  directions: state.directions,
   waypoints: state.waypoints
 })
 

@@ -6,9 +6,9 @@ const whetherApp = (state = {}, action) => {
       return {...state, directions: action.directions };
     case SET_PLACES:
       return {...state, origin: action.origin, destination: action.destination };
-    case 'GET_WHETHER_DATA_RECEIVED':
+    case 'GET_WHETHER_DATA_RECEIVED': //TODO - move from services
       let data = action.data.data;
-      return {...state, directions: data.directions, waypoints: data.equidistant_markers };
+      return {...state, polyline: data.polyline, waypoints: data.equidistant_markers };
     default:
       return state;
   }
