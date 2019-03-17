@@ -1,8 +1,12 @@
 import axios from 'axios';
+import {
+  GET_WHETHER_DATA,
+  GET_WHETHER_DATA_RECEIVED
+} from '../redux/actions';
 
 export const getWhetherData = (origin, destination) => {
   return {
-    type: 'GET_WHETHER_DATA',
+    type: GET_WHETHER_DATA,
     payload: {
       origin,
       destination
@@ -21,14 +25,14 @@ const config = {
 const whetherService = store => next => action => {
   next(action)
   switch (action.type) {
-    case 'GET_WHETHER_DATA':
+    case GET_WHETHER_DATA:
       let origin = action.payload.origin;
       let destination = action.payload.destination;
       let whetherUrl = baseUrl + '?origin=' + origin + '&destination=' + destination;
 
       axios.get(whetherUrl, config).then(data => {
         next({
-          type: 'GET_WHETHER_DATA_RECEIVED',
+          type: GET_WHETHER_DATA_RECEIVED,
           data
         });
       });
