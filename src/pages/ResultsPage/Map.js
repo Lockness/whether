@@ -7,9 +7,10 @@ const Map = ({waypoints}) => {
 
   const handleScriptLoad = () => {
     /*global google*/
-    let columbus = {lat: 40.0016, lng: -83.0197};
+    let midWaypoint = waypoints[Math.floor(waypoints.length / 2)]
+    let center = {lat: midWaypoint.lat, lng: midWaypoint.lng};
     let map = new google.maps.Map(
-      document.getElementById('map'), {zoom: 6, center: columbus}
+      document.getElementById('map'), {zoom: 6, center}
     );
     waypoints.forEach((waypoint) => {
       let position = {lat: waypoint.lat, lng: waypoint.lng};
