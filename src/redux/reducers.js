@@ -1,23 +1,50 @@
+import { combineReducers } from 'redux';
 import {
-  CALL_WHETHER,
   SET_PLACES,
+  GET_WHETHER_DATA,
   GET_WHETHER_DATA_RECEIVED,
+  GET_WHETHER_DATA_ERROR,
 } from './actions';
 
-const whetherApp = (state = {}, action) => {
+
+const places = (state = {}, action) => {
   switch(action.type){
-    case CALL_WHETHER:
-      return {...state, directions: action.directions };
     case SET_PLACES:
       return {...state, origin: action.origin, destination: action.destination };
-    case GET_WHETHER_DATA_RECEIVED:
-      let data = action.data.data;
-      let polyline = data.polyline
-      let waypoints = data.equidistant_markers;
-      return {...state, polyline, waypoints };
     default:
       return state;
   }
 }
 
-export default whetherApp;
+
+const whether = (state = {}, action) => {
+  switch(action.type){
+    case GET_WHETHER_DATA:
+      return {
+        ...state,
+        isFetching: true,
+      };
+    case GET_WHETHER_DATA_RECEIVED:
+      return {
+        ...state,
+        polyline: action.polyline,
+        waypoints: action.waypoints,
+        isFetching: false,
+      };
+    case GET_WHETHER_DATA_ERROR:
+      return {
+        ...state,
+        isFetching: false,
+      };
+    default:
+      return state;
+  }
+}
+
+
+const rootReducer = combineReducers({
+  places,
+  whether,
+});
+
+export default rootReducer;

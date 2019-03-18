@@ -2,8 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
 
-import whetherApp from './redux/reducers';
+import rootReducers from './redux/reducers';
 import Whether from './Whether';
 import whetherService from './services/whetherService';
 
@@ -16,11 +17,11 @@ const App = (props) => {
     compose;
 
   const enhancer = composeEnhancers(
-    applyMiddleware(whetherService)
+    applyMiddleware(thunk)
   );
 
   const store = createStore(
-    whetherApp,
+    rootReducers,
     enhancer
   );
 

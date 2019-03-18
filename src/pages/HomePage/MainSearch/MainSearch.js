@@ -2,8 +2,7 @@
 
 import PlacesPicker from './PlacesPicker';
 import { connect } from 'react-redux';
-import { setPlaces } from '../../../redux/actions';
-import { getWhetherData } from '../../../services/whetherService';
+import { setPlaces, fetchWhether } from '../../../redux/actions';
 
 import React, {useState}  from 'react';
 import PropTypes from 'prop-types';
@@ -53,7 +52,7 @@ MainSearch.propTypes = {
 
 const mapDispatchToProps = (dispatch, props) => ({
   setPlaces: (origin, destination) => dispatch(setPlaces(origin, destination)),
-  getWhether: (origin, destination) => dispatch(getWhetherData(origin, destination))
+  getWhether: (origin, destination) => dispatch(fetchWhether(origin, destination))
 })
 
 export default connect(null, mapDispatchToProps)(MainSearch);

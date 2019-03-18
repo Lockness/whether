@@ -42,9 +42,9 @@ const ResultsPage = ({origin, destination, waypoints}) => {
 
 const mapStateToProps = (state, props) =>
 ({
-  origin: state.origin,
-  destination: state.destination,
-  waypoints: state.waypoints
+  origin: state.places.origin,
+  destination: state.places.destination,
+  waypoints: state.whether.waypoints
 })
 
 export default connect(mapStateToProps)(ResultsPage);
