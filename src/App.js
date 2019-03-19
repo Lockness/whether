@@ -6,7 +6,6 @@ import thunk from 'redux-thunk';
 
 import rootReducers from './redux/reducers';
 import Whether from './Whether';
-import whetherService from './services/whetherService';
 
 const App = (props) => {
 

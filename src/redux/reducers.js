@@ -17,8 +17,15 @@ const places = (state = {}, action) => {
 }
 
 
-const whether = (state = {}, action) => {
+const initialWhetherState = {
+  isFetching: false,
+  polyline: undefined,
+  waypoints: undefined,
+};
+const whether = (state = initialWhetherState, action) => {
   switch(action.type){
+    case SET_PLACES:
+      return initialWhetherState;
     case GET_WHETHER_DATA:
       return {
         ...state,
