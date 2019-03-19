@@ -18,18 +18,18 @@ const ResultsPage = ({origin, destination, waypoints}) => {
       <Spinner />
     </React.Fragment>
   )
-  if (waypoints) {
+  if (waypoints && waypoints.length > 0) {
     outputJsx = (
       <div id='results' className='text-center h-full'>
         <div className='mt-1 mb-1 p-1'>
           <h1 className='mb-1'>Heres the weather for the trip</h1>
           <p>Starting in {origin} and finishing in {destination}</p>
         </div>
-        <div className="flex flex-row h-full">
+        <div className="flex flex-col md:flex-row h-full">
           <div className="w-full h-full">
             <Map waypoints={waypoints} />
           </div>
-          <div className="h-full overflow-scroll w-half">
+          <div className="h-full overflow-scroll w-full md:w-half">
             <WeatherPoints waypoints={waypoints} />
           </div>
         </div>
