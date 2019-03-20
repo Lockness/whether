@@ -18,12 +18,10 @@ const Spinner = () => {
     zIndex: 2e9, // The z-index (defaults to 2000000000)
     className: 'spinner mt-16', // The CSS class to assign to the spinner
     shadow: '0 0 1px transparent', // Box-shadow for the lines
-    position: 'relative', // Element positioning
+    position: 'relative' // Element positioning
   };
 
-  return (
-    <ReactSpinner config={config}/>
-  )
+  return <ReactSpinner config={config} />;
 };
 
 export default Spinner;

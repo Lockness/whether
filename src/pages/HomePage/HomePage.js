@@ -1,7 +1,7 @@
-"use-strict";
+'use-strict';
 
-import MainSearch from "./MainSearch/MainSearch";
-import React from "react";
+import MainSearch from './MainSearch/MainSearch';
+import React from 'react';
 
 const HomePage = () => {
   return (
