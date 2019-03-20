@@ -1,5 +1,5 @@
-import React from 'react'
-import mock_data from './mock_api_call.json'
+import React from 'react';
+import mock_data from './mock_api_call.json';
 
 const WithMockApiData = WrappedComponent => {
   const HOC = () => {
@@ -10,10 +10,10 @@ const WithMockApiData = WrappedComponent => {
         polyline={mock_data.polyline}
         waypoints={mock_data.equidistant_markers}
       />
-    )
-  }
+    );
+  };
 
-  return HOC
-}
+  return HOC;
+};
 
-export default WithMockApiData
+export default WithMockApiData;

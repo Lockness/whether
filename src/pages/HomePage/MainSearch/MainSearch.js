@@ -1,12 +1,12 @@
-'use-strict'
+'use-strict';
 
-import PlacesPicker from './PlacesPicker'
-import { connect } from 'react-redux'
-import { setPlaces, fetchWhether } from '../../../redux/actions'
+import PlacesPicker from './PlacesPicker';
+import { connect } from 'react-redux';
+import { setPlaces, fetchWhether } from '../../../redux/actions';
 
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const Button = props => {
   return (
@@ -17,18 +17,18 @@ const Button = props => {
     >
       Search
     </button>
-  )
-}
+  );
+};
 
 const MainSearch = ({ setPlaces, getWhether }) => {
-  const [origin, setOrigin] = useState('')
-  const [destination, setDestination] = useState('')
-  const [date, setDate] = useState('')
+  const [origin, setOrigin] = useState('');
+  const [destination, setDestination] = useState('');
+  const [date, setDate] = useState('');
 
   const onSearch = () => {
-    setPlaces(origin, destination)
-    getWhether(origin, destination)
-  }
+    setPlaces(origin, destination);
+    getWhether(origin, destination);
+  };
 
   return (
     <form>
@@ -37,20 +37,20 @@ const MainSearch = ({ setPlaces, getWhether }) => {
         <Button onClick={onSearch} />
       </Link>
     </form>
-  )
-}
+  );
+};
 
 MainSearch.propTypes = {
   setPlaces: PropTypes.func,
   getWhether: PropTypes.func
-}
+};
 
 const mapDispatchToProps = (dispatch, props) => ({
   setPlaces: (origin, destination) => dispatch(setPlaces(origin, destination)),
   getWhether: (origin, destination) => dispatch(fetchWhether(origin, destination))
-})
+});
 
 export default connect(
   null,
   mapDispatchToProps
-)(MainSearch)
+)(MainSearch);

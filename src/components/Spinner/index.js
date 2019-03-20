@@ -1,5 +1,5 @@
-import React from 'react'
-import ReactSpinner from './Spinner'
+import React from 'react';
+import ReactSpinner from './Spinner';
 
 const Spinner = () => {
   const config = {
@@ -19,9 +19,9 @@ const Spinner = () => {
     className: 'spinner mt-16', // The CSS class to assign to the spinner
     shadow: '0 0 1px transparent', // Box-shadow for the lines
     position: 'relative' // Element positioning
-  }
+  };
 
-  return <ReactSpinner config={config} />
-}
+  return <ReactSpinner config={config} />;
+};
 
-export default Spinner
+export default Spinner;

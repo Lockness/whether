@@ -23,7 +23,8 @@
     "test": "react-app-rewired test",
     "eject": "react-scripts eject",
     "predeploy": "yarn run build",
-    "check-staged": "lint-staged"
+    "check-staged": "lint-staged",
+    "prettiest": "prettier --write '**/*.js'"
   },
   "eslintConfig": {
     "extends": [

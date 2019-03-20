@@ -1,12 +1,12 @@
-'use-strict'
+'use-strict';
 
-import React from 'react'
-import { connect } from 'react-redux'
+import React from 'react';
+import { connect } from 'react-redux';
 
-import Map from './Map'
+import Map from './Map';
 //import WithMockApiData from './WithMockApiData';
-import WeatherPoints from './WeatherPoints'
-import Spinner from '../../components/Spinner/'
+import WeatherPoints from './WeatherPoints';
+import Spinner from '../../components/Spinner/';
 
 const ResultsPage = ({ origin, destination, waypoints }) => {
   let outputJsx = (
@@ -19,7 +19,7 @@ const ResultsPage = ({ origin, destination, waypoints }) => {
       </p>
       <Spinner />
     </React.Fragment>
-  )
+  );
   if (waypoints && waypoints.length > 0) {
     outputJsx = (
       <div id="results" className="text-center h-full">
@@ -38,17 +38,17 @@ const ResultsPage = ({ origin, destination, waypoints }) => {
           </div>
         </div>
       </div>
-    )
+    );
   }
 
-  return outputJsx
-}
+  return outputJsx;
+};
 
 const mapStateToProps = (state, props) => ({
   origin: state.places.origin,
   destination: state.places.destination,
   waypoints: state.whether.waypoints
-})
+});
 
-export default connect(mapStateToProps)(ResultsPage)
+export default connect(mapStateToProps)(ResultsPage);
 //export default WithMockApiData(ResultsPage);
