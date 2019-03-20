@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import Script from "react-load-script";
+import Script from 'react-load-script'
 
 const PlaceInput = ({ id, label, value, onChange }) => {
   return (
@@ -14,48 +14,38 @@ const PlaceInput = ({ id, label, value, onChange }) => {
         onChange={e => onChange(e.target.value)}
       />
     </React.Fragment>
-  );
-};
+  )
+}
 
 class PlacesPicker extends React.Component {
   handleScriptLoad = () => {
     /*global google*/
 
-    this.originAutocomplete = new google.maps.places.Autocomplete(
-      document.getElementById("origin")
-    );
-    this.destinationAutocomplete = new google.maps.places.Autocomplete(
-      document.getElementById("destination")
-    );
+    this.originAutocomplete = new google.maps.places.Autocomplete(document.getElementById('origin'))
+    this.destinationAutocomplete = new google.maps.places.Autocomplete(document.getElementById('destination'))
 
-    this.originAutocomplete.addListener(
-      "place_changed",
-      this.handleOriginSelect
-    );
-    this.destinationAutocomplete.addListener(
-      "place_changed",
-      this.handleDestinationSelect
-    );
-  };
+    this.originAutocomplete.addListener('place_changed', this.handleOriginSelect)
+    this.destinationAutocomplete.addListener('place_changed', this.handleDestinationSelect)
+  }
 
   handleOriginSelect = () => {
-    let addressObject = this.originAutocomplete.getPlace();
+    let addressObject = this.originAutocomplete.getPlace()
 
     if (addressObject && addressObject.formatted_address) {
-      this.props.setOrigin(addressObject.formatted_address);
+      this.props.setOrigin(addressObject.formatted_address)
     }
-  };
+  }
 
   handleDestinationSelect = () => {
-    let addressObject = this.destinationAutocomplete.getPlace();
+    let addressObject = this.destinationAutocomplete.getPlace()
 
     if (addressObject && addressObject.formatted_address) {
-      this.props.setDestination(addressObject.formatted_address);
+      this.props.setDestination(addressObject.formatted_address)
     }
-  };
+  }
 
   render() {
-    let { origin, destination, setOrigin, setDestination } = this.props;
+    let { origin, destination, setOrigin, setDestination } = this.props
     return (
       <React.Fragment>
         <Script
@@ -63,21 +53,11 @@ class PlacesPicker extends React.Component {
           onLoad={this.handleScriptLoad}
         />
         <div className="flex flex-col flex-initial justify-center xs:w-3/4 sm:w-1/2 lg:w-1/4 m-auto">
-          <PlaceInput
-            id="origin"
-            label="Coming From:"
-            value={origin}
-            onChange={setOrigin}
-          />
-          <PlaceInput
-            label="Going To:"
-            id="destination"
-            value={destination}
-            onChange={setDestination}
-          />
+          <PlaceInput id="origin" label="Coming From:" value={origin} onChange={setOrigin} />
+          <PlaceInput label="Going To:" id="destination" value={destination} onChange={setDestination} />
         </div>
       </React.Fragment>
-    );
+    )
   }
 }
 
@@ -86,6 +66,6 @@ PlacesPicker.propTypes = {
   destination: PropTypes.string,
   setOrigin: PropTypes.func,
   setDestination: PropTypes.func
-};
+}
 
-export default PlacesPicker;
+export default PlacesPicker
