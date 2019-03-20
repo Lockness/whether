@@ -1,23 +1,23 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import Spinner from 'spin.js';
+import PropTypes from "prop-types";
+import React from "react";
+import Spinner from "spin.js";
 
 export default class ReactSpinner extends React.Component {
   static propTypes = {
     // This object is passed in wholesale as the spinner config
     config: PropTypes.object,
     // This is a quick way to overwrite just the color on the config
-    color: PropTypes.string.isRequired,
-  }
+    color: PropTypes.string.isRequired
+  };
   static defaultProps = {
     config: {},
-    color: 'black',
-  }
+    color: "black"
+  };
   componentDidMount() {
-    const {color, config} = this.props;
+    const { color, config } = this.props;
     const spinConfig = {
       color,
-      ...config,
+      ...config
     };
 
     this.spinner = new Spinner(spinConfig);
@@ -27,6 +27,6 @@ export default class ReactSpinner extends React.Component {
     this.spinner.stop();
   }
   render() {
-    return <span ref="container"/>;
+    return <span ref="container" />;
   }
 }

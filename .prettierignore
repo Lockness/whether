@@ -1,0 +1,9 @@
+config-overrides.js
+postcss.config.js
+tailwind.js
+
+package.json
+
+**/node_modules
+**/build
+**/public

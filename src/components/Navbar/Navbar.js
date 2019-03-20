@@ -1,6 +1,6 @@
-'use-strict';
+"use-strict";
 
-import React from 'react';
+import React from "react";
 
 const Navbar = () => {
   return (
@@ -10,11 +10,11 @@ const Navbar = () => {
           <span className="font-bold text-3xl tracking-tight">Whether</span>
         </div>
         <div className="w-auto flex md:items-center text-white">
-          <h4 className="font-semithin">Settings</h4> 
+          <h4 className="font-semithin">Settings</h4>
         </div>
       </div>
     </nav>
   );
-}
+};
 
 export default Navbar;
