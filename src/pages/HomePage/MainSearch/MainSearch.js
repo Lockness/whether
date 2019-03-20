@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom';
 const Button = (props) => {
   return (
     <button
+      onClick={props.onClick}
       {...props}
       className="bg-transparent border-2 border-solid border-white font-bold text-white py-2 px-4 mt-4 rounded hover:bg-indigo hover:border-transparent hover:text-white">
       Search
