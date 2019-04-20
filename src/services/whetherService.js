@@ -11,7 +11,7 @@ const config = {
 const whetherService = (origin, destination) => {
   let whetherUrl = baseUrl + '?origin=' + origin + '&destination=' + destination;
 
-  return axios.get(whetherUrl, config)
-}
+  return axios.get(whetherUrl, config);
+};
 
 export default whetherService;

@@ -14,17 +14,15 @@ function WeatherIcon({ forecast }) {
     isolated_snow_showers: 'wi-snow',
     scattered_snow_showers: 'wi-snow',
     cloudy: 'wi-cloudy',
-    windy: 'wi-windy',
+    windy: 'wi-windy'
   };
-  
-  const getIconClass = (forecast) => {
+
+  const getIconClass = forecast => {
     let iconKey = forecast.toLowerCase().replace(/ /g, '_');
     return ICON_TYPES[iconKey];
   };
 
-  return (
-    <i className={'wi ' + getIconClass(forecast)}></i>
-  )
+  return <i className={'wi ' + getIconClass(forecast)} />;
 }
 
 WeatherIcon.propTypes = {
