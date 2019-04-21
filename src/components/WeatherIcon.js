@@ -7,18 +7,37 @@ function WeatherIcon({ forecast }) {
     sunny: 'wi-day-sunny',
     mostly_clear: 'wi-day-sunny',
     mostly_sunny: 'wi-day-sunny',
+    partly_sunny: 'wi-day-cloudy',
     rain: 'wi-rain',
-    rain_showers: 'wi-rain',
+    rain_showers: 'wi-showers',
+    chance_rain_showers: 'wi-showers',
+    scattered_rain_showers: 'wi-showers',
+    isolated_rain_showers: 'wi-showers',
+    slight_chance_rain_showers: 'wi-rain-mix',
+    chance_light_rain: 'wi-sprinkle',
+    rain_showers_likely: 'wi-showers',
+    slight_chance_rain_and_snow: 'wi-sleet',
+    chance_rain_and_snow_showers: 'wi-sleet',
+    rain_and_snow_likely: 'wi-sleet',
     fog: 'wi-fog',
     snow: 'wi-snow',
+    light_snow: 'wi-snow',
+    light_snow_likely: 'wi-snow',
     isolated_snow_showers: 'wi-snow',
     scattered_snow_showers: 'wi-snow',
+    chance_snow_showers: 'wi-snow',
     cloudy: 'wi-cloudy',
-    windy: 'wi-windy'
+    mostly_cloudy: 'wi-cloudy',
+    partly_cloudy: 'wi-cloud',
+    windy: 'wi-windy',
+    slight_chance_showers_and_thunderstorms: 'wi-storm-showers',
+    chance_showers_and_thunderstorms: 'wi-storm-showers',
+
   };
 
   const getIconClass = forecast => {
     let iconKey = forecast.toLowerCase().replace(/ /g, '_');
+    console.log(iconKey);
     return ICON_TYPES[iconKey];
   };
 
