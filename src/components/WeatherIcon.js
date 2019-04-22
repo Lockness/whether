@@ -14,10 +14,12 @@ function WeatherIcon({ forecast }) {
     scattered_rain_showers: 'wi-showers',
     isolated_rain_showers: 'wi-showers',
     slight_chance_rain_showers: 'wi-rain-mix',
-    chance_light_rain: 'wi-sprinkle',
+    chance_light_rain: 'wi-showers',
+    light_rain_likely: 'wi-showers',
     rain_showers_likely: 'wi-showers',
     slight_chance_rain_and_snow: 'wi-sleet',
     chance_rain_and_snow_showers: 'wi-sleet',
+    chance_rain_and_snow: 'wi-sleet',
     rain_and_snow_likely: 'wi-sleet',
     fog: 'wi-fog',
     snow: 'wi-snow',
@@ -31,8 +33,7 @@ function WeatherIcon({ forecast }) {
     partly_cloudy: 'wi-cloud',
     windy: 'wi-windy',
     slight_chance_showers_and_thunderstorms: 'wi-storm-showers',
-    chance_showers_and_thunderstorms: 'wi-storm-showers',
-
+    chance_showers_and_thunderstorms: 'wi-storm-showers'
   };
 
   const getIconClass = forecast => {
