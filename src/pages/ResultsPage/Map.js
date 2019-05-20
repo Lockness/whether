@@ -70,7 +70,8 @@ Map.propTypes = {
       lng: PropTypes.number.isRequired,
       weather_data: PropTypes.object
     })
-  )
+  ),
+  polyline: PropTypes.string
 };
 
 export default Map;

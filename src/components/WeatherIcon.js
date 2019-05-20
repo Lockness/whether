@@ -13,10 +13,10 @@ function WeatherIcon({ forecast }) {
     chance_rain_showers: 'wi-showers',
     scattered_rain_showers: 'wi-showers',
     isolated_rain_showers: 'wi-showers',
-    slight_chance_rain_showers: 'wi-rain-mix',
     chance_light_rain: 'wi-showers',
     light_rain_likely: 'wi-showers',
     rain_showers_likely: 'wi-showers',
+    slight_chance_rain_showers: 'wi-rain-mix',
     slight_chance_rain_and_snow: 'wi-sleet',
     chance_rain_and_snow_showers: 'wi-sleet',
     chance_rain_and_snow: 'wi-sleet',
@@ -38,7 +38,6 @@ function WeatherIcon({ forecast }) {
 
   const getIconClass = forecast => {
     let iconKey = forecast.toLowerCase().replace(/ /g, '_');
-    console.log(iconKey);
     return ICON_TYPES[iconKey];
   };
 
