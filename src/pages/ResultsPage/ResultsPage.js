@@ -4,11 +4,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Map from './Map';
-//import WithMockApiData from './WithMockApiData';
+// import WithMockApiData from './WithMockApiData';
 import WeatherPoints from './WeatherPoints';
 import Spinner from '../../components/Spinner/';
 
-const ResultsPage = ({ origin, destination, waypoints }) => {
+const ResultsPage = ({origin, destination, waypoints, polyline}) => {
+
   let outputJsx = (
     <React.Fragment>
       <p className="align-middle text-center text-3xl mt-32">
@@ -31,7 +32,7 @@ const ResultsPage = ({ origin, destination, waypoints }) => {
         </div>
         <div className="flex flex-col md:flex-row h-full">
           <div className="w-full h-full">
-            <Map waypoints={waypoints} />
+            <Map waypoints={waypoints} polyline={polyline} />
           </div>
           <div className="h-full overflow-scroll w-full md:w-half">
             <WeatherPoints waypoints={waypoints} />
@@ -47,8 +48,9 @@ const ResultsPage = ({ origin, destination, waypoints }) => {
 const mapStateToProps = (state, props) => ({
   origin: state.places.origin,
   destination: state.places.destination,
-  waypoints: state.whether.waypoints
-});
+  waypoints: state.whether.waypoints,
+  polyline: state.whether.polyline
+})
 
 export default connect(mapStateToProps)(ResultsPage);
-//export default WithMockApiData(ResultsPage);
+// export default WithMockApiData(ResultsPage);
