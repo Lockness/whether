@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 
 import WeatherIcon from '../../components/WeatherIcon';
 
@@ -13,16 +14,17 @@ const getAddressCity = address => {
   return `${city}, ${state}`;
 };
 
-const getArrivalTime = () => {
-  return 'Time';
+const getArrivalTime = (startMoment, arrivalDelta) => {
+  const arrivalMoment = moment(startMoment).add(arrivalDelta, 'm');
+  return arrivalMoment.format('h:mm A');
 };
 
 const WeatherCard = ({ arrivalTime, city, forecast, position }) => {
   return (
     <div className="w-full bg-white text-indigo h-32 shadow border-2 border-indigo-light rounded">
       <h4 className="mb-2 mt-1 py-1 border-b-2 border-grey">{`${position} : ${city}`}</h4>
-      <p className="text-center align-middle">{forecast}</p>
-      <div>{arrivalTime}</div>
+      <p className="align-middle">{arrivalTime}</p>
+      <p className="align-middle">{forecast}</p>
       <div className="mt-3">
         <WeatherIcon forecast={forecast} />
       </div>
@@ -37,11 +39,11 @@ WeatherCard.propTypes = {
 };
 
 const WeatherPoints = ({ waypoints }) => {
-  const startTime = new Date();
+  const startMoment = moment();
   return (
     <div className="flex flex-col justify-center">
       {waypoints.map((waypoint, index) => {
-        const arrivalTime = getArrivalTime(startTime, waypoint.arrivalTime);
+        const arrivalTime = getArrivalTime(startMoment, waypoint.arrival_time);
         const city = getAddressCity(waypoint.address);
         return (
           <WeatherCard
