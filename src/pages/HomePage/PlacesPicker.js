@@ -28,13 +28,20 @@ class PlacesPicker extends React.Component {
   handleScriptLoad = () => {
     /* global google */
 
-    this.originAutocomplete = new google.maps.places.Autocomplete(document.getElementById('origin'));
-    this.destinationAutocomplete = new google.maps.places.Autocomplete(document.getElementById('destination'));
+    const origin = document.getElementById('origin');
+    const destination = document.getElementById('destination');
+    this.originAutocomplete = new google.maps.places.Autocomplete(origin);
+    this.destinationAutocomplete = new google.maps.places.Autocomplete(destination);
 
     this.originAutocomplete.addListener('place_changed', this.handleOriginSelect);
     this.destinationAutocomplete.addListener('place_changed', this.handleDestinationSelect);
 
-    google.maps.event.addDomListener(document.getElementById('origin'), 'keydown', event => {
+    google.maps.event.addDomListener(origin, 'keydown', event => {
+      if (event.keyCode === 13) {
+        event.preventDefault();
+      }
+    });
+    google.maps.event.addDomListener(destination, 'keydown', event => {
       if (event.keyCode === 13) {
         event.preventDefault();
       }
