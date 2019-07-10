@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import Script from 'react-load-script';
+
+import MapMarkerUrl from './marker-15.svg';
 
 const addPolylineToMap = (map, polyline) => {
   const decodedPoints = google.maps.geometry.encoding.decodePath(polyline);
@@ -17,13 +18,11 @@ const addPolylineToMap = (map, polyline) => {
 
 const addMarkersToMap = (map, waypoints) => {
   const image = {
-    url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
-    // This marker is 20 pixels wide by 32 pixels high.
+    url: MapMarkerUrl,
     size: new google.maps.Size(20, 32),
-    // The origin for this image is (0, 0).
     origin: new google.maps.Point(0, 0),
     // The anchor for this image is the base of the flagpole at (0, 32).
-    anchor: new google.maps.Point(0, 32)
+    anchor: new google.maps.Point(10, 15)
   };
   const shape = {
     coords: [1, 1, 1, 20, 18, 20, 18, 1],
@@ -35,7 +34,6 @@ const addMarkersToMap = (map, waypoints) => {
       position,
       icon: image,
       title: 'hello',
-      map,
       shape
     });
     marker.setMap(map);
