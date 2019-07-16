@@ -23,15 +23,19 @@ const WeatherCardHeader = styled.h2`
   font-size: 1.15rem;
 `;
 
+const IconContainer = styled.div`
+  margin-top: 10px;
+`;
+
 const WeatherCard = ({ arrivalTime, city, forecast, position }) => {
   return (
     <WeatherCardContainer>
       <WeatherCardHeader>{`${position} : ${city}`}</WeatherCardHeader>
       <p>{arrivalTime}</p>
       <p>{forecast}</p>
-      <div>
+      <IconContainer>
         <WeatherIcon forecast={forecast} />
-      </div>
+      </IconContainer>
     </WeatherCardContainer>
   );
 };
