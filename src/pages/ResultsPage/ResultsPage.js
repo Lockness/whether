@@ -1,45 +1,52 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { connect } from 'react-redux';
 
 import Map from './Map';
 // import WithMockApiData from './WithMockApiData';
 import WeatherPoints from './WeatherPoints';
-import Spinner from '../../components/Spinner';
+import LoadingPage from './LoadingPage';
 
-const LoadingPage = () => (
-  <React.Fragment>
-    <p className="align-middle text-center text-3xl mt-32">
-      Loading your trip{' '}
-      <span role="img" aria-label="smile">
-        😁
-      </span>
-    </p>
-    <Spinner />
-  </React.Fragment>
-);
+const ResultsPageContainer = styled.div`
+  height: 80vh;
+  text-align: center;
+`;
+
+const WaypointsContainer = styled.div`
+  overflow-y: scroll;
+  width: 40%;
+`;
+
+const FlexContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+`;
+
+const ResultsHeader = styled.div`
+  margin: 0.5rem 0;
+`;
 
 const ResultsPage = ({ origin, destination, waypoints, polyline }) => {
   if (!waypoints || !waypoints.length > 0) {
     return <LoadingPage />;
   }
   return (
-    <div id="results" className="text-center h-full">
-      <div className="mt-1 mb-1 p-1">
-        <h1 className="mb-1">Heres the weather for the trip</h1>
+    <ResultsPageContainer>
+      <ResultsHeader>
+        <h1>Heres the weather for the trip</h1>
         <p>
           Starting in {origin} and finishing in {destination}
         </p>
-      </div>
-      <div className="flex flex-col md:flex-row h-full">
-        <div className="w-full h-full">
-          <Map waypoints={waypoints} polyline={polyline} />
-        </div>
-        <div className="h-full overflow-scroll w-full md:w-half">
+      </ResultsHeader>
+      <FlexContainer>
+        <Map waypoints={waypoints} polyline={polyline} />
+        <WaypointsContainer>
           <WeatherPoints waypoints={waypoints} />
-        </div>
-      </div>
-    </div>
+        </WaypointsContainer>
+      </FlexContainer>
+    </ResultsPageContainer>
   );
 };
 

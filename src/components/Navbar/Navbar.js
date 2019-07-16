@@ -1,20 +1,21 @@
-'use-strict';
-
 import React from 'react';
+import styled from 'styled-components';
 
-const Navbar = () => {
-  return (
-    <nav className="bg-indigo">
-      <div className="flex flex-wrap justify-between items-center p-4">
-        <div className="flex items-center flex-no-shrink text-white">
-          <span className="font-bold text-3xl tracking-tight">Whether</span>
-        </div>
-        <div className="w-auto flex md:items-center text-white">
-          <h4 className="font-semithin">Settings</h4>
-        </div>
-      </div>
-    </nav>
-  );
-};
+const StyledNav = styled.nav`
+  background-color: #6574cd;
+  padding: 1rem;
+`;
+
+const StyledNavBrand = styled.span`
+  letter-spacing: -0.05em;
+  font-size: 1.875rem;
+  font-weight: 700;
+`;
+
+const Navbar = () => (
+  <StyledNav>
+    <StyledNavBrand>Whether</StyledNavBrand>
+  </StyledNav>
+);
 
 export default Navbar;

@@ -6,11 +6,12 @@ import thunk from 'redux-thunk';
 
 import rootReducers from './redux/reducers';
 import Whether from './Whether';
+import BaseStyles from './BaseStyles';
 
-const App = props => {
+const App = () => {
   const composeEnhancers =
-    typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-      ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
+    typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ // eslint-disable-line no-underscore-dangle
+      ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({}) // eslint-disable-line no-underscore-dangle
       : compose;
 
   const enhancer = composeEnhancers(applyMiddleware(thunk));
@@ -18,13 +19,14 @@ const App = props => {
   const store = createStore(rootReducers, enhancer);
 
   return (
-    <div className="text-white font-semibold">
+    <React.Fragment>
+      <BaseStyles />
       <Provider store={store}>
         <Router>
           <Whether />
         </Router>
       </Provider>
-    </div>
+    </React.Fragment>
   );
 };
 
