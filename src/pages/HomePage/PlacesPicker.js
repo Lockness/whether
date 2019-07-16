@@ -1,20 +1,53 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import Script from 'react-load-script';
+import styled from 'styled-components';
 
-const PlaceInput = React.forwardRef(({ id, label }, ref) => (
+const PlaceHeader = styled.h2`
+  font-size: 1.125rem;
+  text-align: left;
+  margin-left: 0.5rem;
+`;
+
+const PlaceInput = React.forwardRef(({ id, label, className }, ref) => (
   <React.Fragment>
-    <h2 className="text-lg text-left ml-2">{label}</h2>
-    <input id={id} className="p-4 m-1 mb-3 text-indigo rounded-lg font-bold" ref={ref} />
+    <PlaceHeader>{label}</PlaceHeader>
+    <input id={id} className={className} ref={ref} />
   </React.Fragment>
 ));
 PlaceInput.displayName = 'PlaceInput';
 PlaceInput.propTypes = {
   id: PropTypes.string,
   label: PropTypes.string,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  className: PropTypes.string
 };
+
+const StyledPlaceInput = styled(PlaceInput)`
+  padding: 1rem;
+  margin: 0.25rem 0.25rem 0.75rem 0.25rem;
+  font-weight: 700;
+  border-radius: 0.5rem;
+  color: #6574cd;
+  width: 100%;
+`;
+
+const PlacesInputContainer = styled.div`
+  margin: auto;
+  diplay: flex;
+  flex: 0 1 auto;
+  justify-content: center;
+  flex-direction: column;
+  width: 25%;
+`;
+
+const PlacesInput = React.forwardRef((_, ref) => (
+  <PlacesInputContainer>
+    <StyledPlaceInput id="origin" label="Coming From:" />
+    <StyledPlaceInput label="Going To:" id="destination" ref={ref} />
+  </PlacesInputContainer>
+));
+PlacesInput.displayName = 'PlacesInput';
 
 class PlacesPicker extends React.Component {
   constructor(props) {
@@ -69,10 +102,7 @@ class PlacesPicker extends React.Component {
           url="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBE4ui6NqI3DkVOY5iMZX6oUp1xoseJYA&libraries=places"
           onLoad={this.handleScriptLoad}
         />
-        <div className="flex flex-col flex-initial justify-center xs:w-3/4 sm:w-1/2 lg:w-1/4 m-auto">
-          <PlaceInput id="origin" label="Coming From:" />
-          <PlaceInput label="Going To:" id="destination" ref={this.destinationInputRef} />
-        </div>
+        <PlacesInput ref={this.destinationInputRef} />
       </React.Fragment>
     );
   }

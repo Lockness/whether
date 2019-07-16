@@ -1,17 +1,30 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import MainSearch from './MainSearch';
 
-const HomePage = () => {
-  return (
-    <div className="text-center text-white bg-indigo-darker">
-      <div className="pt-12 mb-10">
-        <h1 className="mb-4">Whether</h1>
-        <p>A place to get weather information on a trip</p>
-      </div>
-      <MainSearch />
-    </div>
-  );
-};
+const HomePageContainer = styled.div`
+  color: white;
+  text-align: center;
+`;
+
+const HomeIntro = styled.div`
+  padding-top: 3rem;
+  margin-bottom: 2.5rem;
+`;
+
+const WhetherHeader = styled.h1`
+  margin-bottom: 1rem;
+`;
+
+const HomePage = () => (
+  <HomePageContainer>
+    <HomeIntro>
+      <WhetherHeader>Whether</WhetherHeader>
+      <p>A place to get weather information on a trip</p>
+    </HomeIntro>
+    <MainSearch />
+  </HomePageContainer>
+);
 
 export default HomePage;

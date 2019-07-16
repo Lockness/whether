@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Script from 'react-load-script';
+import styled from 'styled-components';
 
 import MapMarkerUrl from './marker-15.svg';
 
@@ -52,15 +53,25 @@ const loadMap = (waypoints, polyline) => {
   addMarkersToMap(map, waypoints);
 };
 
+const MapContainer = styled.div`
+  height: 100%;
+  width: 100%;
+`;
+
+const MapDiv = styled.div`
+  height: 100%;
+  width: 100%;
+`;
+
 const Map = ({ waypoints, polyline }) => (
   <React.Fragment>
     <Script
       url="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBE4ui6NqI3DkVOY5iMZX6oUp1xoseJYA&libraries=geometry"
       onLoad={() => loadMap(waypoints, polyline)}
     />
-    <div className="h-full w-full">
-      <div id="map" className="h-full w-full" />
-    </div>
+    <MapContainer>
+      <MapDiv id="map" />
+    </MapContainer>
   </React.Fragment>
 );
 Map.propTypes = {

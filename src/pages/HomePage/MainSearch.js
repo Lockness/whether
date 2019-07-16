@@ -5,19 +5,7 @@ import { Link } from 'react-router-dom';
 
 import { setPlaces, fetchWhether } from '../../redux/actions';
 import PlacesPicker from './PlacesPicker';
-
-const Button = props => {
-  return (
-    <button
-      onClick={props.onClick} // eslint-disable-line react/prop-types
-      {...props}
-      className="bg-transparent border-2 border-solid border-white font-bold text-white py-2 px-4
-                mt-4 rounded hover:bg-indigo hover:border-transparent hover:text-white"
-    >
-      Search
-    </button>
-  );
-};
+import StyledButton from '../../components/StyledButton';
 
 const MainSearch = ({ callSetPlaces, callGetWhether }) => {
   const [origin, setOrigin] = useState('');
@@ -32,7 +20,7 @@ const MainSearch = ({ callSetPlaces, callGetWhether }) => {
     <form>
       <PlacesPicker origin={origin} destination={destination} setOrigin={setOrigin} setDestination={setDestination} />
       <Link to="/whether">
-        <Button onClick={onSearch} />
+        <StyledButton onClick={onSearch}>Search</StyledButton>
       </Link>
     </form>
   );
