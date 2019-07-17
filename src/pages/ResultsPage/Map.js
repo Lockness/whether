@@ -29,6 +29,7 @@ const addMarkersToMap = (map, waypoints) => {
     coords: [1, 1, 1, 20, 18, 20, 18, 1],
     type: 'poly'
   };
+  var bounds = new google.maps.LatLngBounds();
   waypoints.forEach(waypoint => {
     const position = { lat: waypoint.lat, lng: waypoint.lng };
     const marker = new google.maps.Marker({
@@ -37,7 +38,9 @@ const addMarkersToMap = (map, waypoints) => {
       title: 'hello',
       shape
     });
+    bounds.extend(marker.getPosition());
     marker.setMap(map);
+    map.fitBounds(bounds);
   });
 };
 
@@ -46,8 +49,7 @@ const loadMap = (waypoints, polyline) => {
   const midWaypoint = waypoints[Math.floor(waypoints.length / 2)];
   const center = { lat: midWaypoint.lat, lng: midWaypoint.lng };
   const map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 6,
-    center
+    zoom: 6
   });
   addPolylineToMap(map, polyline);
   addMarkersToMap(map, waypoints);
