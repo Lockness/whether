@@ -2,11 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 
 import Map from './Map';
 // import WithMockApiData from './WithMockApiData';
 import WeatherPoints from './WeatherPoints';
 import LoadingPage from './LoadingPage';
+import ErrorPage from './ErrorPage';
 
 const ResultsPageContainer = styled.div`
   height: 80vh;
@@ -28,7 +30,10 @@ const ResultsHeader = styled.div`
   margin: 0.5rem 0;
 `;
 
-const ResultsPage = ({ origin, destination, waypoints, polyline }) => {
+const ResultsPage = ({ origin, destination, waypoints, polyline, hasErrored, history }) => {
+  if (hasErrored) {
+    return <ErrorPage goBack={() => history.go(-1)} />;
+  }
   if (!waypoints || !waypoints.length > 0) {
     return <LoadingPage />;
   }
@@ -54,15 +59,18 @@ ResultsPage.propTypes = {
   origin: PropTypes.string,
   destination: PropTypes.string,
   waypoints: PropTypes.arrayOf(PropTypes.object),
-  polyline: PropTypes.string
+  polyline: PropTypes.string,
+  hasErrored: PropTypes.bool,
+  history: PropTypes.object
 };
 
 const mapStateToProps = state => ({
   origin: state.places.origin,
   destination: state.places.destination,
   waypoints: state.whether.waypoints,
-  polyline: state.whether.polyline
+  polyline: state.whether.polyline,
+  hasErrored: state.whether.hasErrored
 });
 
-export default connect(mapStateToProps)(ResultsPage);
+export default connect(mapStateToProps)(withRouter(ResultsPage));
 // export default WithMockApiData(ResultsPage);

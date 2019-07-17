@@ -16,6 +16,7 @@ const places = (state = {}, action) => {
 
 const initialWhetherState = {
   isFetching: false,
+  hasErrored: false,
   polyline: undefined,
   waypoints: undefined
 };
@@ -26,19 +27,22 @@ const whether = (state = initialWhetherState, action) => {
     case GET_WHETHER_DATA:
       return {
         ...state,
-        isFetching: true
+        isFetching: true,
+        hasErrored: false
       };
     case GET_WHETHER_DATA_RECEIVED:
       return {
         ...state,
         polyline: action.polyline,
         waypoints: action.waypoints,
-        isFetching: false
+        isFetching: false,
+        hasErrored: false
       };
     case GET_WHETHER_DATA_ERROR:
       return {
         ...state,
-        isFetching: false
+        isFetching: false,
+        hasErrored: true
       };
     default:
       return state;
