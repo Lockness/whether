@@ -42,12 +42,17 @@ const ResultsHeader = styled.div`
   margin: 0.5rem 0;
 `;
 
-const ResultsPage = ({ origin, destination, waypoints, polyline, hasErrored, history }) => {
+const ResultsPage = ({ origin, destination, waypoints, polyline, hasErrored, isFetching, history }) => {
   if (hasErrored) {
     return <ErrorPage goBack={() => history.go(-1)} />;
   }
-  if (!waypoints || !waypoints.length > 0) {
+  if (isFetching) {
     return <LoadingPage />;
+  }
+  if (!waypoints || !waypoints.length > 0) {
+    // Not fetching and no waypoints probably means a refresh on /whether
+    history.push('/');
+    return null;
   }
   return (
     <ResultsPageContainer>
@@ -73,6 +78,7 @@ ResultsPage.propTypes = {
   waypoints: PropTypes.arrayOf(PropTypes.object),
   polyline: PropTypes.string,
   hasErrored: PropTypes.bool,
+  isFetching: PropTypes.bool,
   history: PropTypes.object
 };
 
@@ -81,6 +87,7 @@ const mapStateToProps = state => ({
   destination: state.places.destination,
   waypoints: state.whether.waypoints,
   polyline: state.whether.polyline,
+  isFetching: state.whether.isFetching,
   hasErrored: state.whether.hasErrored
 });
 
