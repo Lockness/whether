@@ -15,13 +15,25 @@ const ResultsPageContainer = styled.div`
 
 const WaypointsContainer = styled.div`
   overflow-y: scroll;
-  width: 40%;
+  width: 100%;
+  margin-top: 5px;
+  height: 90%;
+
+  @media (min-width: 1024px) {
+    width: 40%;
+    height: 100%;
+    margin-top: 0;
+  }
 `;
 
 const FlexContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   height: 100%;
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+  }
 `;
 
 const ResultsHeader = styled.div`
