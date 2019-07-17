@@ -13,19 +13,6 @@ const ResultsPageContainer = styled.div`
   text-align: center;
 `;
 
-const WaypointsContainer = styled.div`
-  overflow-y: scroll;
-  width: 100%;
-  margin-top: 5px;
-  height: 90%;
-
-  @media (min-width: 1024px) {
-    width: 40%;
-    height: 100%;
-    margin-top: 0;
-  }
-`;
-
 const FlexContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -33,6 +20,19 @@ const FlexContainer = styled.div`
 
   @media (min-width: 1024px) {
     flex-direction: row;
+  }
+`;
+
+const WaypointsContainer = styled.div`
+  overflow-y: scroll;
+  width: 100%;
+  margin-top: 5px;
+  height: 70%;
+
+  @media (min-width: 1024px) {
+    width: 40%;
+    height: 100%;
+    margin-top: 0;
   }
 `;
 
