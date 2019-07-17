@@ -38,7 +38,11 @@ const PlacesInputContainer = styled.div`
   flex: 0 1 auto;
   justify-content: center;
   flex-direction: column;
-  width: 25%;
+  width: 70%;
+
+  @media (min-width: 1024px) {
+    width: 30%;
+  }
 `;
 
 const PlacesInput = React.forwardRef((_, ref) => (
