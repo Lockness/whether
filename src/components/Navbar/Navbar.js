@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const StyledNav = styled.nav`
   background-color: #6574cd;
-  padding: 1rem;
+  padding: 1rem 1rem 0 1rem;
 `;
 
 const StyledNavBrand = styled.span`
