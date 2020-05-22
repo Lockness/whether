@@ -50,7 +50,8 @@ const WeatherPoints = ({ waypoints }) => {
 WeatherPoints.propTypes = {
   waypoints: PropTypes.arrayOf(
     PropTypes.shape({
-      arrival_time: PropTypes.number,
+      arrival_time: PropTypes.number.isRequired,
+      address: PropTypes.string.isRequired,
       lat: PropTypes.number.isRequired,
       lng: PropTypes.number.isRequired,
       weather_data: PropTypes.object
