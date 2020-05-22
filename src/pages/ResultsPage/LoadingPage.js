@@ -13,7 +13,6 @@ const LoadingMessage = styled.p`
 const LoadingPage = () => (
   <>
     <LoadingMessage>
-      Loading your trip{' '}
       <span role="img" aria-label="smile">
         😁
       </span>
