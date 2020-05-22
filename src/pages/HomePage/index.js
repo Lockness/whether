@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 import { setPlaces, fetchWhether } from '../../redux/actions';
-import PlacesPicker from './PlacesPicker';
-import StyledButton from '../../components/StyledButton';
+import HomePage from './HomePage';
 
-const MainSearch = ({ callSetPlaces, callGetWhether }) => {
+const HomePageContainer = ({ callSetPlaces, callGetWhether }) => {
   const [origin, setOrigin] = useState('');
   const [destination, setDestination] = useState('');
 
@@ -17,16 +15,16 @@ const MainSearch = ({ callSetPlaces, callGetWhether }) => {
   };
 
   return (
-    <form>
-      <PlacesPicker origin={origin} destination={destination} setOrigin={setOrigin} setDestination={setDestination} />
-      <Link to="/whether">
-        <StyledButton onClick={onSearch}>Search</StyledButton>
-      </Link>
-    </form>
+    <HomePage
+      destination={destination}
+      origin={origin}
+      onSearch={onSearch}
+      setOrigin={setOrigin}
+      setDestination={setDestination}
+    />
   );
 };
-
-MainSearch.propTypes = {
+HomePageContainer.propTypes = {
   callSetPlaces: PropTypes.func,
   callGetWhether: PropTypes.func
 };
@@ -39,4 +37,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   null,
   mapDispatchToProps
-)(MainSearch);
+)(HomePageContainer);
