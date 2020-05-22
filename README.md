@@ -1,4 +1,7 @@
 # Whether
+[![Netlify Status](https://api.netlify.com/api/v1/badges/347feaf0-393f-4deb-ad9c-271ca8ffb1cd/deploy-status)](https://app.netlify.com/sites/whether/deploys)
+
+---
 
 This is the frontend for the Whether app. 
 
