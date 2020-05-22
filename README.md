@@ -1,68 +1,62 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Whether
 
-## Available Scripts
+This is the frontend for the Whether app. 
 
-In the project directory, you can run:
+The project was created with `CRA2`, and uses `customize-cra` to have a little more flexibility.
 
-### `npm start`
+For styling, `styled-components` is used.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The project has `eslint` and `prettifier` to remove most decisions about code styling. It's mostly airbnb's code standards. It also uses `husky` to make sure your commits pass the `lint`/`prettifier` requirements.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+it is hosted via `netlify`, which automatically builds the code inside of master and deploys it to https://whether.cloud. 
 
-### `npm test`
+## For Contributors
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Setup
+First thing to do is clown the repo locally and install the node_packages
+```
+git clone git@github.com:Lockness/whether.git
+cd whether
+yarn install
+```
 
-### `npm run build`
+To start the dev server, simply run:
+```
+yarn start
+```
+This starts the dev server on `http://localhost:3000`. Hot reload is enabled, so feel free to make changes.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Structure
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+At the top-level, there are a few expected files: `package.json` and `yarn.lock`. `config-overrides.js` is for customize-cra overrides. There's also the `src/` directory. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Most of the code is inside of `src/`. Inside you'll find:
+- `components/` - Where general, reused components are located. 
+- `css/` and `font/` - Where the weather icons are stores, as well as remnants of an deprecated library previously used exist  (I know, I know 😅)
+- `redux/` - Where the actions and reducers for our `redux` store are at.
+- `services/` - Where our modules to interface with other web services exist.
+- `pages/` - Where the different pages are seen. All page-specific components are also located within their page's root directory. 
 
-### `npm run eject`
+### Testing
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+As mentioned, this project uses `jest` and `enzyme` for testing. To test, in the root of the project run 
+```
+yarn test
+```
+This will start the interactive runner.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Bable configs
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+There is no `.babelrc` file, so instead you'll add babel changes to the `babel` section in the `package.json`. To add a plugin, install it and add it to the `babel` section's `plugins` list. 
+```
+yarn add -D babel-plugin-styled-components
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+And within `package.json`,
+```
+...,
+"babel": {
+    "plugins": ['babel-plugin-styled-components']
+},
+...
+```
