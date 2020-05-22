@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 import styled from 'styled-components';
 
 import Navbar from './components/Navbar/Navbar';
-import HomePage from './pages/HomePage/HomePage';
+import HomePage from './pages/HomePage';
 import ResultsPage from './pages/ResultsPage/ResultsPage';
 
 const WhetherContainer = styled.div`
