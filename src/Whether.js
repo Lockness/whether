@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import Navbar from './components/Navbar/Navbar';
 import HomePage from './pages/HomePage';
-import ResultsPage from './pages/ResultsPage/ResultsPage';
+import ResultsPage from './pages/ResultsPage';
 
 const WhetherContainer = styled.div`
   height: 100%;
