@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { setPlaces, fetchWhether } from '../../redux/actions';
 import HomePage from './HomePage';
 
-const HomePageContainer = ({ callSetPlaces, callGetWhether }) => {
+export const HomePageContainer = ({ callSetPlaces, callGetWhether }) => {
   const [origin, setOrigin] = useState('');
   const [destination, setDestination] = useState('');
 
