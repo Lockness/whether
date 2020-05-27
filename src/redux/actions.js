@@ -1,41 +1,36 @@
 import whetherService from '../services/whetherService';
+import * as types from './actionTypes';
 
 // Places Actions
-export const SET_PLACES = 'SET_PLACES';
 export const setPlaces = (origin, destination) => {
   return {
-    type: SET_PLACES,
+    type: types.SET_PLACES,
     origin,
     destination
   };
 };
 
 // Whether Actions
-export const GET_WHETHER_DATA = 'GET_WHETHER_DATA';
-export const getWhetherData = (origin, destination) => {
+export const getWhetherData = () => {
   return {
-    type: GET_WHETHER_DATA,
-    origin,
-    destination
+    type: types.GET_WHETHER_DATA
   };
 };
 
-export const GET_WHETHER_DATA_RECEIVED = 'GET_WHETHER_DATA_RECEIVED';
 export const getWhetherDataReceived = response => {
   const { data } = response;
   const { polyline } = data;
   const waypoints = data.equidistant_markers;
   return {
-    type: GET_WHETHER_DATA_RECEIVED,
+    type: types.GET_WHETHER_DATA_RECEIVED,
     polyline,
     waypoints
   };
 };
 
-export const GET_WHETHER_DATA_ERROR = 'GET_WHETHER_DATA_ERROR';
 export const getWhetherDataError = (response, error) => {
   return {
-    type: GET_WHETHER_DATA_ERROR,
+    type: types.GET_WHETHER_DATA_ERROR,
     error
   };
 };

@@ -11,7 +11,7 @@ const LoadingMessage = styled.p`
 `;
 
 const LoadingPage = () => (
-  <React.Fragment>
+  <>
     <LoadingMessage>
       Loading your trip{' '}
       <span role="img" aria-label="smile">
@@ -19,7 +19,7 @@ const LoadingPage = () => (
       </span>
     </LoadingMessage>
     <Spinner />
-  </React.Fragment>
+  </>
 );
 
 export default LoadingPage;
