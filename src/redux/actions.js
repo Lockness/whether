@@ -36,11 +36,11 @@ export const getWhetherDataError = (response, error) => {
 };
 
 // Thunk Actions
-export const fetchWhether = (origin, destination) => {
+export const fetchWhether = (origin, destination, waypointDistance = 20) => {
   return dispatch => {
     dispatch(getWhetherData(origin, destination));
 
-    return whetherService(origin, destination).then(
+    return whetherService(origin, destination, waypointDistance).then(
       response => dispatch(getWhetherDataReceived(response)),
       error => dispatch(getWhetherDataError(error)) // Can't use catch
     );

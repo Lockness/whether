@@ -11,7 +11,7 @@ describe('WaypointDistanceInput', () => {
   const component = mount(<WaypointDistanceInput setWaypointDistance={callSetWaypointDistanceMock} />);
 
   it('displays the header', () => {
-    expect(component.find('h2').text()).toEqual('Waypoint Distance (optional):');
+    expect(component.find('h2').text()).toEqual('Waypoint Distance:');
   });
 
   describe('waypointDistanceInput', () => {

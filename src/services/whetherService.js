@@ -8,8 +8,8 @@ const config = {
   }
 };
 
-const whetherService = (origin, destination) => {
-  let whetherUrl = baseUrl + '?origin=' + origin + '&destination=' + destination;
+const whetherService = (origin, destination, waypointDistance) => {
+  const whetherUrl = `${baseUrl}?origin=${origin}&destination=${destination}&marker_distance=${waypointDistance}`;
 
   return axios.get(whetherUrl, config);
 };
