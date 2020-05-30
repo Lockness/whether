@@ -23,7 +23,7 @@ export const HomePageContainer = ({ callSetPlaces, callGetWhether }) => {
       onSearch={onSearch}
       setOrigin={setOrigin}
       setDestination={setDestination}
-      setWaypointDistance={setWaypointDistance}
+      setWaypointDistance={value => setWaypointDistance(parseInt(value, 10))}
     />
   );
 };

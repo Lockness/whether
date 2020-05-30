@@ -21,6 +21,19 @@ const WhetherHeader = styled.h1`
   margin-bottom: 1rem;
 `;
 
+const InputsContainer = styled.div`
+  margin: auto;
+  diplay: flex;
+  flex: 0 1 auto;
+  justify-content: center;
+  flex-direction: column;
+  width: 70%;
+
+  @media (min-width: 1024px) {
+    width: 30%;
+  }
+`;
+
 const HomePage = ({
   destination,
   origin,
@@ -36,8 +49,10 @@ const HomePage = ({
       <p>A place to get weather information on a trip</p>
     </HomeIntro>
     <form>
-      <PlacesPicker origin={origin} destination={destination} setOrigin={setOrigin} setDestination={setDestination} />
-      <WaypointDistanceInput waypointDistance={waypointDistance} setWaypointDistance={setWaypointDistance} />
+      <InputsContainer>
+        <PlacesPicker origin={origin} destination={destination} setOrigin={setOrigin} setDestination={setDestination} />
+        <WaypointDistanceInput waypointDistance={waypointDistance} setWaypointDistance={setWaypointDistance} />
+      </InputsContainer>
       <Link to="/whether">
         <StyledButton onClick={onSearch}>Search</StyledButton>
       </Link>
@@ -47,10 +62,10 @@ const HomePage = ({
 HomePage.propTypes = {
   destination: PropTypes.string,
   origin: PropTypes.string,
+  waypointDistance: PropTypes.number,
   onSearch: PropTypes.func,
   setOrigin: PropTypes.func,
   setDestination: PropTypes.func,
-  waypointDistance: PropTypes.number,
   setWaypointDistance: PropTypes.func
 };
 
