@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 import PlacesPicker from './PlacesPicker';
 import StyledButton from '../../components/StyledButton';
+import WaypointDistanceInput from './WaypointDistanceInput';
 
 const HomePageContainer = styled.div`
   color: white;
@@ -20,7 +21,15 @@ const WhetherHeader = styled.h1`
   margin-bottom: 1rem;
 `;
 
-const HomePage = ({ destination, origin, onSearch, setDestination, setOrigin }) => (
+const HomePage = ({
+  destination,
+  origin,
+  waypointDistance,
+  onSearch,
+  setDestination,
+  setOrigin,
+  setWaypointDistance
+}) => (
   <HomePageContainer>
     <HomeIntro>
       <WhetherHeader>Whether</WhetherHeader>
@@ -28,6 +37,7 @@ const HomePage = ({ destination, origin, onSearch, setDestination, setOrigin }) 
     </HomeIntro>
     <form>
       <PlacesPicker origin={origin} destination={destination} setOrigin={setOrigin} setDestination={setDestination} />
+      <WaypointDistanceInput waypointDistance={waypointDistance} setWaypointDistance={setWaypointDistance} />
       <Link to="/whether">
         <StyledButton onClick={onSearch}>Search</StyledButton>
       </Link>
@@ -39,7 +49,9 @@ HomePage.propTypes = {
   origin: PropTypes.string,
   onSearch: PropTypes.func,
   setOrigin: PropTypes.func,
-  setDestination: PropTypes.func
+  setDestination: PropTypes.func,
+  waypointDistance: PropTypes.number,
+  setWaypointDistance: PropTypes.func
 };
 
 export default HomePage;
