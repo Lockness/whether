@@ -37,7 +37,12 @@ class PlacesPicker extends React.Component {
     const addressObject = this.originAutocomplete.getPlace();
 
     if (addressObject && addressObject.formatted_address) {
-      this.props.setOrigin(addressObject.formatted_address);
+      const origin = {
+        address: addressObject.formatted_address,
+        lat: addressObject.geometry.location.lat(),
+        lng: addressObject.geometry.location.lng()
+      };
+      this.props.setOrigin(origin);
     }
     this.destinationInputRef.current.focus();
   };
@@ -46,20 +51,25 @@ class PlacesPicker extends React.Component {
     const addressObject = this.destinationAutocomplete.getPlace();
 
     if (addressObject && addressObject.formatted_address) {
-      this.props.setDestination(addressObject.formatted_address);
+      const destination = {
+        address: addressObject.formatted_address,
+        lat: addressObject.geometry.location.lat(),
+        lng: addressObject.geometry.location.lng()
+      };
+      this.props.setDestination(destination);
     }
   };
 
   render() {
     return (
-      <React.Fragment>
+      <>
         <Script
           url="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBE4ui6NqI3DkVOY5iMZX6oUp1xoseJYA&libraries=places"
           onLoad={this.handleScriptLoad}
         />
         <StyledInput label="Coming From:" id="origin" />
         <StyledInput label="Going To:" id="destination" ref={this.destinationInputRef} />
-      </React.Fragment>
+      </>
     );
   }
 }

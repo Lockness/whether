@@ -5,14 +5,25 @@ import { connect } from 'react-redux';
 import { setPlaces, fetchWhether } from '../../redux/actions';
 import HomePage from './HomePage';
 
+const getCoordinates = location => {
+  return `${location.lat},${location.lng}`;
+};
+
 export const HomePageContainer = ({ callSetPlaces, callGetWhether }) => {
-  const [origin, setOrigin] = useState('');
-  const [destination, setDestination] = useState('');
+  const [origin, setOrigin] = useState({});
+  const [destination, setDestination] = useState({});
   const [waypointDistance, setWaypointDistance] = useState(20);
 
-  const onSearch = () => {
-    callSetPlaces(origin, destination);
-    callGetWhether(origin, destination, waypointDistance);
+  const onSearch = e => {
+    if (!Object.keys(origin).length || !Object.keys(destination).length) {
+      e.preventDefault();
+      return;
+    }
+
+    const originCoordinates = getCoordinates(origin);
+    const destinationCoordinates = getCoordinates(destination);
+    callSetPlaces(origin.address, destination.address);
+    callGetWhether(originCoordinates, destinationCoordinates, waypointDistance);
   };
 
   return (
@@ -38,4 +49,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(fetchWhether(origin, destination, waypointDistance))
 });
 
-export default connect(null, mapDispatchToProps)(HomePageContainer);
+export default connect(
+  null,
+  mapDispatchToProps
+)(HomePageContainer);

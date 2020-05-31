@@ -7,8 +7,8 @@ import { MemoryRouter } from 'react-router-dom';
 import HomePage from './HomePage';
 
 describe('HomePage', () => {
-  const destination = 'Columbus, OH';
-  const origin = 'Ohio State University';
+  const destination = { address: 'Columbus, OH', lat: 100.0, lng: 5.0 };
+  const origin = { address: 'Ohio State University', lat: 10.0, lng: -100.0 };
   const onSearchMock = jest.fn();
   const setDestinationMock = jest.fn();
   const setOriginMock = jest.fn();
