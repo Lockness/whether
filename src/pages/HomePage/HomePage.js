@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 import PlacesPicker from './PlacesPicker';
 import StyledButton from '../../components/StyledButton';
+import WaypointDistanceInput from './WaypointDistanceInput';
 
 const HomePageContainer = styled.div`
   color: white;
@@ -20,14 +21,38 @@ const WhetherHeader = styled.h1`
   margin-bottom: 1rem;
 `;
 
-const HomePage = ({ destination, origin, onSearch, setDestination, setOrigin }) => (
+const InputsContainer = styled.div`
+  margin: auto;
+  diplay: flex;
+  flex: 0 1 auto;
+  justify-content: center;
+  flex-direction: column;
+  width: 70%;
+
+  @media (min-width: 1024px) {
+    width: 30%;
+  }
+`;
+
+const HomePage = ({
+  destination,
+  origin,
+  waypointDistance,
+  onSearch,
+  setDestination,
+  setOrigin,
+  setWaypointDistance
+}) => (
   <HomePageContainer>
     <HomeIntro>
       <WhetherHeader>Whether</WhetherHeader>
       <p>A place to get weather information on a trip</p>
     </HomeIntro>
     <form>
-      <PlacesPicker origin={origin} destination={destination} setOrigin={setOrigin} setDestination={setDestination} />
+      <InputsContainer>
+        <PlacesPicker origin={origin} destination={destination} setOrigin={setOrigin} setDestination={setDestination} />
+        <WaypointDistanceInput waypointDistance={waypointDistance} setWaypointDistance={setWaypointDistance} />
+      </InputsContainer>
       <Link to="/whether">
         <StyledButton onClick={onSearch}>Search</StyledButton>
       </Link>
@@ -37,9 +62,11 @@ const HomePage = ({ destination, origin, onSearch, setDestination, setOrigin }) 
 HomePage.propTypes = {
   destination: PropTypes.string,
   origin: PropTypes.string,
+  waypointDistance: PropTypes.number,
   onSearch: PropTypes.func,
   setOrigin: PropTypes.func,
-  setDestination: PropTypes.func
+  setDestination: PropTypes.func,
+  setWaypointDistance: PropTypes.func
 };
 
 export default HomePage;
