@@ -60,8 +60,8 @@ const HomePage = ({
   </HomePageContainer>
 );
 HomePage.propTypes = {
-  destination: PropTypes.string,
-  origin: PropTypes.string,
+  destination: PropTypes.object,
+  origin: PropTypes.object,
   waypointDistance: PropTypes.number,
   onSearch: PropTypes.func,
   setOrigin: PropTypes.func,
