@@ -61,7 +61,7 @@ const MapDiv = styled.div`
 const Map = ({ waypoints, polyline }) => (
   <React.Fragment>
     <Script
-      url="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBE4ui6NqI3DkVOY5iMZX6oUp1xoseJYA&libraries=geometry"
+      url="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjwY479M3V-JPlVbrVHKH9QPtpwGuHg10&libraries=geometry"
       onLoad={() => loadMap(waypoints, polyline)}
     />
     <MapDiv id="map" />

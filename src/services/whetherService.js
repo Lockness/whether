@@ -4,7 +4,7 @@ const baseUrl = 'https://api.whether.cloud/beta';
 
 const config = {
   headers: {
-    'x-api-key': 'BYi5MaSB1IaFAyUDbaIaMa25mmdyhngK3H4WENXe'
+    'x-api-key': 'AIzaSyAjwY479M3V-JPlVbrVHKH9QPtpwGuHg10'
   }
 };
 
