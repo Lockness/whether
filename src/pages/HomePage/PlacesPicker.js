@@ -64,7 +64,7 @@ class PlacesPicker extends React.Component {
     return (
       <>
         <Script
-          url="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBE4ui6NqI3DkVOY5iMZX6oUp1xoseJYA&libraries=places"
+          url="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjwY479M3V-JPlVbrVHKH9QPtpwGuHg10&libraries=places"
           onLoad={this.handleScriptLoad}
         />
         <StyledInput label="Coming From:" id="origin" />
