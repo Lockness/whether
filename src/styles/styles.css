@@ -1,0 +1,11 @@
+html, body {
+    height: 100%; 
+    width: 100%;
+    min-height: 100%; 
+    min-width: 100%;
+}
+
+body {
+    background: rgba(0, 0, 0, 0) linear-gradient(rgb(101, 116, 205) 0%, rgb(101, 116, 205) 13%, rgb(27, 37, 94) 100%) repeat scroll 0% 0%;
+    color: #FAF9F6;
+}
